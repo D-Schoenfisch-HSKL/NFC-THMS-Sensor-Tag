@@ -1,0 +1,4 @@
+clock_config.c:71:6:BOARD_BootClockIRC12M	32	static
+clock_config.c:43:6:BOARD_InitBootClocks	8	static
+clock_config.c:115:6:BOARD_BootClockPll12M	32	static
+clock_config.c:159:6:BOARD_BootClockPll24M	8	static

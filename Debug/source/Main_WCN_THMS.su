@@ -1,0 +1,4 @@
+fsl_clock.h:305:20:CLOCK_EnableClock	16	static
+fsl_clock.h:325:20:CLOCK_Select	16	static
+fsl_clock.h:336:20:CLOCK_SetClkDivider	16	static
+Main_WCN_THMS.c:47:5:main	40	static

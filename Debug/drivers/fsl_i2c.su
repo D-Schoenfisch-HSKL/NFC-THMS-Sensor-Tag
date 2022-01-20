@@ -1,0 +1,16 @@
+fsl_i2c.c:101:10:I2C_GetInstance	8	static
+fsl_i2c.c:134:6:I2C_MasterGetDefaultConfig	8	static
+fsl_i2c.c:180:6:I2C_MasterDeinit	8	static
+fsl_i2c.c:200:6:I2C_MasterSetBaudRate	64	static
+fsl_i2c.c:157:6:I2C_MasterInit	16	static
+fsl_i2c.c:278:10:I2C_MasterStart	16	static
+fsl_i2c.c:299:10:I2C_MasterStop	0	static
+fsl_i2c.c:327:10:I2C_MasterWriteBlocking	24	static
+fsl_i2c.c:443:10:I2C_MasterReadBlocking	32	static
+fsl_i2c.c:542:10:I2C_MasterTransferBlocking	24	static
+fsl_i2c.c:1395:6:I2C_SlaveSetAddress	8	static
+fsl_i2c.c:1424:6:I2C_SlaveGetDefaultConfig	32	static
+fsl_i2c.c:1455:10:I2C_SlaveInit	24	static
+fsl_i2c.c:1506:6:I2C_SlaveDeinit	8	static
+fsl_i2c.c:1527:10:I2C_SlaveWriteBlocking	20	static
+fsl_i2c.c:1614:10:I2C_SlaveReadBlocking	20	static

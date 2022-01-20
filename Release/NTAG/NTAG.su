@@ -1,0 +1,17 @@
+NTAG.c:414:21:write_i2c	24	static
+NTAG.c:398:21:read_i2c_with_command	40	static
+NTAG.c:424:21:write_i2c_with_command.constprop	32	static
+NTAG.c:144:14:inti_ntag	0	static
+NTAG.c:154:14:ntag_change_local_i2c_address	0	static
+NTAG.c:159:9:ntag_get_local_i2c_address	0	static
+NTAG.c:163:14:ntag_change_device_i2c_address	24	static
+NTAG.c:183:14:ntag_i2c_rst_with_doubleStart	32	static
+NTAG.c:203:14:ntag_factory_resest_of_memory	72	static
+NTAG.c:225:14:ntag_get_16ByteBlock	8	static
+NTAG.c:237:14:ntag_read_userMemory	24	static
+NTAG.c:269:14:ntag_write_userMemory	48	static
+NTAG.c:343:14:ntag_erase_userMemory	32	static
+NTAG.c:360:14:ntag_write_session_or_config_register	16	static
+NTAG.c:174:14:ntag_nfcs_i2c_rst	8	static
+NTAG.c:368:14:ntag_read_session_or_config_register	24	static
+NTAG.c:194:14:ntag_get_sessionConfig	16	static

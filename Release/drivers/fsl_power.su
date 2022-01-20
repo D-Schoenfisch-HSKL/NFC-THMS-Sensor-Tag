@@ -1,0 +1,6 @@
+fsl_power.c:25:6:POWER_EnterSleep	0	static
+fsl_power.c:50:6:POWER_EnterDeepSleep	8	static
+fsl_power.c:81:6:POWER_EnterPowerDown	8	static
+fsl_power.c:111:6:POWER_EnterDeepPowerDownMode	0	static
+fsl_power.c:132:6:EnableDeepSleepIRQ	12	static
+fsl_power.c:150:6:DisableDeepSleepIRQ	8	static

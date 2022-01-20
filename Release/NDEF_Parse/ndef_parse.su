@@ -1,0 +1,12 @@
+ndef_parse.c:26:19:parse_ndef_record	24	static
+ndef_parse.c:61:19:create_ndef_record	32	static
+ndef_parse.c:141:6:free_ndef_record_struct_and_data_memory	8	static
+ndef_parse.c:148:6:free_ndef_record_struct	8	static
+ndef_parse.c:185:28:create_ndef_message	8	static
+ndef_parse.c:192:28:add_record_to_ndef_message	16	static
+ndef_parse.c:154:28:parse_ndef_message	32	static
+ndef_parse.c:201:6:free_ndef_message_and_records	16	static
+ndef_parse.c:210:6:free_ndef_records_of_message	16	static
+ndef_parse.c:224:30:assemble_ndefMessage_to_uint8_array	24	static
+ndef_parse.c:267:6:free_ndef_message_uint8_array	8	static
+ndef_parse.c:280:6:assemble_ndefMessage_to_given_uint8_array	32	static

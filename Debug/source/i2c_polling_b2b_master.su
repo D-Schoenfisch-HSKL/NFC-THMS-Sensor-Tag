@@ -1,0 +1,5 @@
+fsl_clock.h:305:20:CLOCK_EnableClock	16	static
+fsl_clock.h:325:20:CLOCK_Select	16	static
+fsl_clock.h:336:20:CLOCK_SetClkDivider	16	static
+fsl_i2c.h:620:24:I2C_MasterRepeatedStart	16	static
+i2c_polling_b2b_master.c:45:5:main	32	static

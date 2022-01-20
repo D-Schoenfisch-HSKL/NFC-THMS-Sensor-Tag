@@ -1,0 +1,10 @@
+thms_2_ndef.c:36:6:thms2ndef_setInitialNDEFMessage	40	static
+thms_2_ndef.c:48:30:thms2ndef_generateMeasTextAndDoInstruction	96	static
+thms_2_ndef.c:73:30:thms2ndef_generateConfigInfoTextAndDoInstruction	88	static
+thms_2_ndef.c:91:6:thms2ndef_freemMessTextArray	8	static
+thms_2_ndef.c:100:6:thms2ndef_getNDEFMessageStartAndEndPoint	20	static
+thms_2_ndef.c:127:6:thms2ndef_getNDEFMessageStartPoint	12	static
+thms_2_ndef.c:139:6:thms2ndef_checkNDEFMessageEndPoint	0	static
+thms_2_ndef.c:147:6:thms2ndef_get_FSM_DoInstruction_inNDEF16Bytes	40	static
+thms_2_ndef.c:165:6:thms2ndef_set_FSM_DoInstruction	40	static
+thms_2_ndef.c:179:6:thms2ndef_getValuesFromMeasText	48	static

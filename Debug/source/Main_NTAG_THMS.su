@@ -1,0 +1,5 @@
+Main_NTAG_THMS.c:183:6:reanimateNTAG	8	static
+Main_NTAG_THMS.c:204:6:set_NTAG_do_instruction	32	static
+Main_NTAG_THMS.c:231:9:check_NTAG_for_do_instructuion	24	static
+Main_NTAG_THMS.c:248:6:thingsToDoAtInitialization	16	static
+Main_NTAG_THMS.c:292:5:main	72	static
