@@ -1,5 +1,5 @@
 /*
- * Code Version: 1.3.2
+ * Code Version: 1.3.3
  *
  * !!ACHTUNG:
  * Änderungen zu 1.3.1:
@@ -18,7 +18,7 @@
  *
  */
 
-#define FIRMWARE_VERSION				"1.3.2"
+#define FIRMWARE_VERSION				"1.3.3"
 
 // >>> CONFIG <<< //
 #define SELF_RESET_AFTER_MEASUREMENT	false	// Reset NFC to trigger readout
@@ -135,6 +135,12 @@ static bool resetIndicator = false; // to indicate if system was reset (but with
 
 static uint8_t measurementCout = 0;
 static int FSM_slowDown_ms = FSM_DEFAULT_SLOW_DOWN;
+
+static char fw_version[] = FIRMWARE_VERSION;
+static char ss_type_m[20] = "init"; // Should be Null-terminated
+static char ms_type_m[20] = "init";	// Should be Null-terminated
+static char pulse_length_ms_m[20] = STR(PULSE_LENGTH_MS); // Should be Null-terminated
+static char pulse_fit_start_ms_m[20] = STR(PULSE_FIT_START_MS);	// Should be Null-terminated
 
 /*******************************************************************************
  * Code
@@ -282,7 +288,7 @@ int main(void)
 #endif
     	switch(fsm_state_m) //Finite State Machine
     	{
-    	case FSM_INIT:
+    	case FSM_INIT: {
     		fsm_state_ntag = get_NTAG_do_instructuion(); // Get FSM Do-Instruction from NTAG = Last instruction before Reset
     		if(fsm_state_ntag == FSM_NFCS_I2C_RST) {
     			resetIndicator = false;
@@ -298,9 +304,9 @@ int main(void)
 #endif
 
     		}
-    		break;
+    		break;}// Ende Case FSM_INIT
 
-    	case FSM_IDLE:
+    	case FSM_IDLE: {
 #if PRINT_UART_DEBUG_INFO & REGISTER_CONFIG_CHECK_TO_UART
     		uint8_t configArray_of_7Bytes[7] = {0x00}; // NTAG Session Config
     	    readNTAGRegisterAndPrint(0x3A);
@@ -317,11 +323,11 @@ int main(void)
 			}
 
 			fsm_state_m = get_NTAG_do_instructuion(); // Update FSM-Instruction from NTAG Memory
-			break;
+			break;} // Ende Case FSM_IDLE
 
-    	case FSM_DO_SINGLE_MEASUREMENT:
+    	case FSM_DO_SINGLE_MEASUREMENT: {
     		measurementCout++;
-    		thms_get_sensor_signal(&SensorSignal, &MeasurementSignal, &rsqrt_indicator, PULSE_LENGTH_MS, PULSE_FIT_START_MS);
+    		thms_get_sensor_signal(&SensorSignal, &MeasurementSignal, &rsqrt_indicator, PULSE_LENGTH_MS, PULSE_FIT_START_MS,ss_type_m,ms_type_m);
     		//thms2ndef_generateSimpleMeasurementTextMessage(ntagUserMemoryVal, &ntagUserMemoryValLength, SensorSignal);
 
 #if SELF_RESET_AFTER_MEASUREMENT == true
@@ -342,10 +348,10 @@ int main(void)
     	    	lastError = ERROR_NDEF_MESSAGE_CONSTRUCTION;
     	    }
 
-    		break;
+    		break;} // Ende Case FSM_DO_SINGLE_MEASUREMENT
 
     	/* Enables the NFC silence mode. Wait for a second and re-enable NFC. NFC device recognizes new NDEF TAG. I2C is reset.*/
-    	case FSM_NFCS_I2C_RST:
+    	case FSM_NFCS_I2C_RST: {
 #if PRINT_UART_DEBUG_INFO
     	    PRINTF("Do NFC silence and i2c reset \r\n");
 #endif
@@ -361,16 +367,16 @@ int main(void)
     		fsm_state_m = FSM_IDLE; // = Next state
 
     		next_doInstruction = FSM_IDLE;
-    		ndef_message_uint8_array_t * config_text_message_array_s_p = thms2ndef_generateConfigInfoTextAndDoInstruction(next_doInstruction);
+    		ndef_message_uint8_array_t * config_text_message_array_s_p = thms2ndef_generateConfigInfoTextAndDoInstruction(next_doInstruction, fw_version, ss_type_m, ms_type_m);
     		if(!set_NDEF_Text_Record_on_NTAG(config_text_message_array_s_p)) {
     	    	fsm_state_m = FSM_ERROR;
     	    	lastError = ERROR_NDEF_MESSAGE_CONSTRUCTION;
     		}
-    		break;
+    		break; } // Ende Case FSM_NFCS_I2C_RST
 		//ToDo: States: FSM_CHANGE_CONFIG, FSM_DO_MULTIPLE_MEASUREMENTS, FSM_DO_MULTIPLE_MEASUREMENTS, FSM_DO_SINGLE_MEASUREMENT_NO_RESET, FSM_NO_MEASUREMENT_AFTER_POWERUP
 
 		/* If any error occurs, write it to UART inf if in Debug mode.*/
-    	case FSM_ERROR:
+    	case FSM_ERROR: {
 #if true //PRINT_UART_ERROR_INFO
     		PRINTF("LE:0x%x \r\n", lastError);
 #endif
@@ -385,7 +391,7 @@ int main(void)
     	default:
     		lastError = ERROR_FSM_INSTRUCTION_UNKNOWN;
     		fsm_state_m = FSM_ERROR;
-    		break;
+    		break;} // Ende Case FSM_ERROR
 
     	}
     	timer_wait_ms(FSM_slowDown_ms);

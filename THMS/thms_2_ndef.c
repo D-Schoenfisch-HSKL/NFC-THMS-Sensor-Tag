@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include <thms_2_ndef.h>
 #include <ndef_parse.h>
+#include <NTAG.h>
 
 
 #define THMS2NDEF_START_SIGN						0x03
@@ -61,8 +62,7 @@ ndef_message_uint8_array_t * thms2ndef_generateMeasTextAndDoInstruction(uint8_t 
 	return ndefMessage;
 }
 
-// To be checked !!
-// ToDo: Global Config Datei (to be included in main und hier)
+
 /*
  * Generates a Config Info String (Like Do: 0;FWV:1.3.2;SST:23;MST:45).
  * FWS: Firmware Version ; SST: Sensorsignal Type; MeasurementSignal Type
@@ -70,12 +70,12 @@ ndef_message_uint8_array_t * thms2ndef_generateMeasTextAndDoInstruction(uint8_t 
  * Non Null-Terminated String.
  * Do State is given as Hex-String of uint8 with always 2 chars!
  */
-ndef_message_uint8_array_t * thms2ndef_generateConfigInfoTextAndDoInstruction(uint8_t doInstruction) {
+ndef_message_uint8_array_t * thms2ndef_generateConfigInfoTextAndDoInstruction(uint8_t doInstruction, char fw_version[], char ss_type[], char ms_type[]) {
 	char message[60] ;//= "Do:0;No:   ;SS:         ;MS:         ;RSQPB:         ;\n"; //Max Length = 55
 
 	int n = sprintf (message,
 	        " deDo:%2x;FWV:%s;SST:%s;MST:%s;",
-			doInstruction,"1.3.2","sqrt(ns)/LSB","?"
+			doInstruction,fw_version,ss_type,ms_type
 	        );
 	message[0] = 0x02 ;// ASCII Zeichen unklar
 	ndef_message_uint8_array_t * ndefMessage = malloc(sizeof(ndef_message_uint8_array_t)+n*sizeof(char));

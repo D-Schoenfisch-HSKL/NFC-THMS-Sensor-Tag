@@ -6,7 +6,7 @@
  * Generated linker script file for LPC812
  * Created from linkscript.ldt by FMCreateLinkLibraries
  * Using Freemarker v2.3.30
- * MCUXpresso IDE v11.3.0 [Build 5222] [2021-01-11] on 20.01.2022 15:42:23
+ * MCUXpresso IDE v11.3.0 [Build 5222] [2021-01-11] on 21.01.2022 12:47:36
  */
 
 INCLUDE "NFC-THMS-Sensor-Tag_Release_library.ld"
