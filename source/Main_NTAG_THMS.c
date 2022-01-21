@@ -23,8 +23,8 @@
 // >>> CONFIG <<< //
 #define SELF_RESET_AFTER_MEASUREMENT	false	// Reset NFC to trigger readout
 #define AUTO_MEASUREMENT				false	// Automatic measurement after power-up
-#define PULSE_LENGTH_MS					600U	// Length of pulse. Max 3 Seconds. Adjust ADS Gain and DR in THMS.h to avoid sample overflow.
-#define PULSE_FIT_START_MS				50U		// Time to start LinReg fit for "THMS-SS" calculation.
+#define PULSE_LENGTH_MS					600		// Length of pulse. Max 3 Seconds. Adjust ADS Gain and DR in THMS.h to avoid sample overflow.
+#define PULSE_FIT_START_MS				50		// Time to start LinReg fit for "THMS-SS" calculation.
 #define AUTOMATIC_MEASUREMENT_INS		0		// To do automatic measurements if power is enabled. Set to zero to disable.
 
 // >>> DEBUG COONFIG <<< //
@@ -65,6 +65,12 @@
 #define NDEF_MESSAGE_MAX_LENGTH		128
 
 #define FSM_DEFAULT_SLOW_DOWN		1000	// Max 1000 ms
+
+#define STR_HELPER(x) #x
+#define STR(x) STR_HELPER(x)
+
+#define PULSE_FITSTART_STRING 		STR(PULSE_FIT_START_MS) "ms"
+#define PULSE_LENGTH_STRING			STR(PULSE_LENGTH_MS) "ms"
 
 //States for Infinite State Machine in main
 typedef enum {
@@ -136,11 +142,11 @@ static bool resetIndicator = false; // to indicate if system was reset (but with
 static uint8_t measurementCout = 0;
 static int FSM_slowDown_ms = FSM_DEFAULT_SLOW_DOWN;
 
-static char fw_version[] = FIRMWARE_VERSION;
-static char ss_type_m[20] = "init"; // Should be Null-terminated
-static char ms_type_m[20] = "init";	// Should be Null-terminated
-static char pulse_length_ms_m[20] = STR(PULSE_LENGTH_MS); // Should be Null-terminated
-static char pulse_fit_start_ms_m[20] = STR(PULSE_FIT_START_MS);	// Should be Null-terminated
+static char fw_version[10] = FIRMWARE_VERSION;
+static char ss_type_m[20] = "sqrt(ns)/LSB"; // Should be Null-terminated
+static char ms_type_m[20] = "nV";	// Should be Null-terminated
+static char pulse_length_10_m[10] = PULSE_LENGTH_STRING; // Should be Null-terminated
+static char pulse_fit_start_10_m[10] = PULSE_FITSTART_STRING;	// Should be Null-terminated
 
 /*******************************************************************************
  * Code
@@ -367,7 +373,7 @@ int main(void)
     		fsm_state_m = FSM_IDLE; // = Next state
 
     		next_doInstruction = FSM_IDLE;
-    		ndef_message_uint8_array_t * config_text_message_array_s_p = thms2ndef_generateConfigInfoTextAndDoInstruction(next_doInstruction, fw_version, ss_type_m, ms_type_m);
+    		ndef_message_uint8_array_t * config_text_message_array_s_p = thms2ndef_generateConfigInfoTextAndDoInstruction(next_doInstruction, fw_version, ss_type_m, ms_type_m,pulse_length_10_m,pulse_fit_start_10_m);
     		if(!set_NDEF_Text_Record_on_NTAG(config_text_message_array_s_p)) {
     	    	fsm_state_m = FSM_ERROR;
     	    	lastError = ERROR_NDEF_MESSAGE_CONSTRUCTION;

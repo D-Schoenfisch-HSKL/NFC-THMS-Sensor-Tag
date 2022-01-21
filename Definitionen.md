@@ -27,7 +27,7 @@ Do Instruction (uint_8) | Funktion
 0x01  | Idle/Leerlauf. Auslesen von Instruktionen aus dem NFC-Speicher
 0x02  | Messung durchführen. Tag kehrt nach Messung zurück zu 0x01.
 0x04  | Zurücksetzen/Neustarten des NFC-Chips. Spannung für Mikrocontroller (LPC812) bleibt erhalten, wird also nicht zurückgesetzt.
-0x06  | Abrufen der Firmware-Version und Konfigurationsdaten (Sensorsignal Type und Messsignal Typ) . Antwort z.B. "Do: 1;FWV:1.3.3;SST:sqrt(ns)/LSB;MST:nV"
+0x06  | Abrufen der Firmware-Version und Konfigurationsdaten (Sensorsignal Type, Messsignal Typ, Pulse Länge (ms), Puls_fitstart (ms) . Antwort z.B. "Do: 1;FWV:1.3.3;SST:sqrt(ns)/LSB;MST:nV;PLEN:600ms;PST:50ms".  !! Achtung, SST und MST werde erst nach Messung richtig gesetzt.
 0xFF  | Error. Es wird ein Fehler-code über die UART-Schnittstelle ausgegeben.
 
 Wenn auf den Tag also "Do:02;" als NDEF geschrieben wird fürt dieser eine Mesung durch.  

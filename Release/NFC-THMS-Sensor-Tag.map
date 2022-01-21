@@ -787,7 +787,7 @@ END GROUP
                 0x10001000                __top_IAP_SRAM = 0x10001000
                 0x10001000                __top_RAM2 = 0x10001000
 
-.text           0x00000000     0x3760
+.text           0x00000000     0x3788
  FILL mask 0xff
                 0x00000000                __vectors_start__ = ABSOLUTE (.)
  *(SORT_BY_ALIGNMENT(.isr_vector))
@@ -797,15 +797,15 @@ END GROUP
                 0x000000c0                . = ALIGN (0x4)
                 0x000000c0                __section_table_start = .
                 0x000000c0                __data_section_table = .
-                0x000000c0        0x4 LONG 0x3760 LOADADDR (.data)
+                0x000000c0        0x4 LONG 0x3788 LOADADDR (.data)
                 0x000000c4        0x4 LONG 0x10000080 ADDR (.data)
-                0x000000c8        0x4 LONG 0x38 SIZEOF (.data)
-                0x000000cc        0x4 LONG 0x3760 LOADADDR (.data_RAM2)
+                0x000000c8        0x4 LONG 0x50 SIZEOF (.data)
+                0x000000cc        0x4 LONG 0x3788 LOADADDR (.data_RAM2)
                 0x000000d0        0x4 LONG 0x10000fe0 ADDR (.data_RAM2)
                 0x000000d4        0x4 LONG 0x0 SIZEOF (.data_RAM2)
                 0x000000d8                __data_section_table_end = .
                 0x000000d8                __bss_section_table = .
-                0x000000d8        0x4 LONG 0x100000b8 ADDR (.bss)
+                0x000000d8        0x4 LONG 0x100000d0 ADDR (.bss)
                 0x000000dc        0x4 LONG 0x1ac SIZEOF (.bss)
                 0x000000e0        0x4 LONG 0x10000fe0 ADDR (.bss_RAM2)
                 0x000000e4        0x4 LONG 0x0 SIZEOF (.bss_RAM2)
@@ -928,414 +928,415 @@ END GROUP
                 0x00000818       0x58 ./source/Main_NTAG_THMS.o
                 0x00000818                get_NTAG_do_instructuion
  .text.startup.main
-                0x00000870      0x158 ./source/Main_NTAG_THMS.o
+                0x00000870      0x168 ./source/Main_NTAG_THMS.o
                 0x00000870                main
  .text.HardFault_Handler
-                0x000009c8       0x2c ./source/semihost_hardfault.o
-                0x000009c8                HardFault_Handler
+                0x000009d8       0x2c ./source/semihost_hardfault.o
+                0x000009d8                HardFault_Handler
  .text.CLOCK_GetSysOscFreq
-                0x000009f4       0x1c ./drivers/fsl_clock.o
-                0x000009f4                CLOCK_GetSysOscFreq
+                0x00000a04       0x1c ./drivers/fsl_clock.o
+                0x00000a04                CLOCK_GetSysOscFreq
  .text.CLOCK_GetSystemPLLInClockRate
-                0x00000a10       0x40 ./drivers/fsl_clock.o
-                0x00000a10                CLOCK_GetSystemPLLInClockRate
+                0x00000a20       0x40 ./drivers/fsl_clock.o
+                0x00000a20                CLOCK_GetSystemPLLInClockRate
  .text.CLOCK_GetMainClkFreq
-                0x00000a50       0x44 ./drivers/fsl_clock.o
-                0x00000a50                CLOCK_GetMainClkFreq
+                0x00000a60       0x44 ./drivers/fsl_clock.o
+                0x00000a60                CLOCK_GetMainClkFreq
  .text.CLOCK_InitSystemPll
-                0x00000a94       0xa0 ./drivers/fsl_clock.o
-                0x00000a94                CLOCK_InitSystemPll
+                0x00000aa4       0xa0 ./drivers/fsl_clock.o
+                0x00000aa4                CLOCK_InitSystemPll
  .text.CLOCK_SetMainClkSrc
-                0x00000b34       0x34 ./drivers/fsl_clock.o
-                0x00000b34                CLOCK_SetMainClkSrc
+                0x00000b44       0x34 ./drivers/fsl_clock.o
+                0x00000b44                CLOCK_SetMainClkSrc
  .text.CLOCK_UpdateClkOUTsrc
-                0x00000b68       0x10 ./drivers/fsl_clock.o
-                0x00000b68                CLOCK_UpdateClkOUTsrc
+                0x00000b78       0x10 ./drivers/fsl_clock.o
+                0x00000b78                CLOCK_UpdateClkOUTsrc
  .text.GPIO_PortInit
-                0x00000b78       0x18 ./drivers/fsl_gpio.o
-                0x00000b78                GPIO_PortInit
+                0x00000b88       0x18 ./drivers/fsl_gpio.o
+                0x00000b88                GPIO_PortInit
  .text.GPIO_PinInit
-                0x00000b90       0x4c ./drivers/fsl_gpio.o
-                0x00000b90                GPIO_PinInit
+                0x00000ba0       0x4c ./drivers/fsl_gpio.o
+                0x00000ba0                GPIO_PinInit
  .text.I2C_GetInstance
-                0x00000bdc       0x10 ./drivers/fsl_i2c.o
-                0x00000bdc                I2C_GetInstance
+                0x00000bec       0x10 ./drivers/fsl_i2c.o
+                0x00000bec                I2C_GetInstance
  .text.I2C_MasterGetDefaultConfig
-                0x00000bec       0x20 ./drivers/fsl_i2c.o
-                0x00000bec                I2C_MasterGetDefaultConfig
+                0x00000bfc       0x20 ./drivers/fsl_i2c.o
+                0x00000bfc                I2C_MasterGetDefaultConfig
  .text.I2C_MasterInit
-                0x00000c0c       0x4c ./drivers/fsl_i2c.o
-                0x00000c0c                I2C_MasterInit
+                0x00000c1c       0x4c ./drivers/fsl_i2c.o
+                0x00000c1c                I2C_MasterInit
  .text.I2C_MasterStart
-                0x00000c58       0x2c ./drivers/fsl_i2c.o
-                0x00000c58                I2C_MasterStart
+                0x00000c68       0x2c ./drivers/fsl_i2c.o
+                0x00000c68                I2C_MasterStart
  .text.I2C_MasterStop
-                0x00000c84       0x24 ./drivers/fsl_i2c.o
-                0x00000c84                I2C_MasterStop
+                0x00000c94       0x24 ./drivers/fsl_i2c.o
+                0x00000c94                I2C_MasterStop
  .text.I2C_MasterWriteBlocking
-                0x00000ca8       0x98 ./drivers/fsl_i2c.o
-                0x00000ca8                I2C_MasterWriteBlocking
+                0x00000cb8       0x98 ./drivers/fsl_i2c.o
+                0x00000cb8                I2C_MasterWriteBlocking
  .text.I2C_MasterReadBlocking
-                0x00000d40       0x8c ./drivers/fsl_i2c.o
-                0x00000d40                I2C_MasterReadBlocking
+                0x00000d50       0x8c ./drivers/fsl_i2c.o
+                0x00000d50                I2C_MasterReadBlocking
  .text.RESET_PeripheralReset
-                0x00000dcc       0x18 ./drivers/fsl_reset.o
-                0x00000dcc                RESET_PeripheralReset
+                0x00000ddc       0x18 ./drivers/fsl_reset.o
+                0x00000ddc                RESET_PeripheralReset
  .text.USART_GetInstance
-                0x00000de4       0x2c ./drivers/fsl_usart.o
-                0x00000de4                USART_GetInstance
+                0x00000df4       0x2c ./drivers/fsl_usart.o
+                0x00000df4                USART_GetInstance
  .text.USART_Init
-                0x00000e10       0xfc ./drivers/fsl_usart.o
-                0x00000e10                USART_Init
+                0x00000e20       0xfc ./drivers/fsl_usart.o
+                0x00000e20                USART_Init
  .text.USART_ReadBlocking
-                0x00000f0c       0x7c ./drivers/fsl_usart.o
-                0x00000f0c                USART_ReadBlocking
+                0x00000f1c       0x7c ./drivers/fsl_usart.o
+                0x00000f1c                USART_ReadBlocking
  .text.USART0_DriverIRQHandler
-                0x00000f88       0x1c ./drivers/fsl_usart.o
-                0x00000f88                USART0_DriverIRQHandler
+                0x00000f98       0x1c ./drivers/fsl_usart.o
+                0x00000f98                USART0_DriverIRQHandler
  .text.USART1_DriverIRQHandler
-                0x00000fa4       0x1c ./drivers/fsl_usart.o
-                0x00000fa4                USART1_DriverIRQHandler
+                0x00000fb4       0x1c ./drivers/fsl_usart.o
+                0x00000fb4                USART1_DriverIRQHandler
  .text.USART2_DriverIRQHandler
-                0x00000fc0       0x1c ./drivers/fsl_usart.o
-                0x00000fc0                USART2_DriverIRQHandler
+                0x00000fd0       0x1c ./drivers/fsl_usart.o
+                0x00000fd0                USART2_DriverIRQHandler
  .text.SystemInit
-                0x00000fdc       0x24 ./device/system_LPC812.o
-                0x00000fdc                SystemInit
+                0x00000fec       0x24 ./device/system_LPC812.o
+                0x00000fec                SystemInit
  .text.HAL_UartInit
-                0x00001000       0x6c ./component/uart/fsl_adapter_miniusart.o
-                0x00001000                HAL_UartInit
+                0x00001010       0x6c ./component/uart/fsl_adapter_miniusart.o
+                0x00001010                HAL_UartInit
  .text.HAL_UartReceiveBlocking
-                0x0000106c       0x2c ./component/uart/fsl_adapter_miniusart.o
-                0x0000106c                HAL_UartReceiveBlocking
+                0x0000107c       0x2c ./component/uart/fsl_adapter_miniusart.o
+                0x0000107c                HAL_UartReceiveBlocking
  .text.HAL_UartSendBlocking
-                0x00001098       0x18 ./component/uart/fsl_adapter_miniusart.o
-                0x00001098                HAL_UartSendBlocking
+                0x000010a8       0x18 ./component/uart/fsl_adapter_miniusart.o
+                0x000010a8                HAL_UartSendBlocking
  .text.BOARD_InitDebugConsole
-                0x000010b0       0x38 ./board/board.o
-                0x000010b0                BOARD_InitDebugConsole
+                0x000010c0       0x38 ./board/board.o
+                0x000010c0                BOARD_InitDebugConsole
  .text.BOARD_BootClockIRC12M
-                0x000010e8       0x68 ./board/clock_config.o
-                0x000010e8                BOARD_BootClockIRC12M
+                0x000010f8       0x68 ./board/clock_config.o
+                0x000010f8                BOARD_BootClockIRC12M
  .text.BOARD_InitPins
-                0x00001150       0x48 ./board/pin_mux.o
-                0x00001150                BOARD_InitPins
+                0x00001160       0x48 ./board/pin_mux.o
+                0x00001160                BOARD_InitPins
  .text.init_thms
-                0x00001198       0x64 ./THMS/THMS.o
-                0x00001198                init_thms
+                0x000011a8       0x64 ./THMS/THMS.o
+                0x000011a8                init_thms
  .text.thms_get_sensor_signal
-                0x000011fc      0x284 ./THMS/THMS.o
-                0x000011fc                thms_get_sensor_signal
+                0x0000120c      0x284 ./THMS/THMS.o
+                0x0000120c                thms_get_sensor_signal
  .text.thms2ndef_setInitialNDEFMessage
-                0x00001480       0x20 ./THMS/thms_2_ndef.o
-                0x00001480                thms2ndef_setInitialNDEFMessage
+                0x00001490       0x20 ./THMS/thms_2_ndef.o
+                0x00001490                thms2ndef_setInitialNDEFMessage
  .text.thms2ndef_generateMeasTextAndDoInstruction
-                0x000014a0       0x40 ./THMS/thms_2_ndef.o
-                0x000014a0                thms2ndef_generateMeasTextAndDoInstruction
+                0x000014b0       0x40 ./THMS/thms_2_ndef.o
+                0x000014b0                thms2ndef_generateMeasTextAndDoInstruction
  .text.thms2ndef_generateConfigInfoTextAndDoInstruction
-                0x000014e0       0x3c ./THMS/thms_2_ndef.o
-                0x000014e0                thms2ndef_generateConfigInfoTextAndDoInstruction
+                0x000014f0       0x44 ./THMS/thms_2_ndef.o
+                0x000014f0                thms2ndef_generateConfigInfoTextAndDoInstruction
  .text.thms2ndef_set_FSM_DoInstruction
-                0x0000151c       0x64 ./THMS/thms_2_ndef.o
-                0x0000151c                thms2ndef_set_FSM_DoInstruction
+                0x00001534       0x64 ./THMS/thms_2_ndef.o
+                0x00001534                thms2ndef_set_FSM_DoInstruction
  .text.write_i2c
-                0x00001580       0x3c ./NTAG/NTAG.o
+                0x00001598       0x3c ./NTAG/NTAG.o
  .text.read_i2c_with_command
-                0x000015bc       0x64 ./NTAG/NTAG.o
+                0x000015d4       0x64 ./NTAG/NTAG.o
  .text.write_i2c_with_command.constprop.0
-                0x00001620       0x50 ./NTAG/NTAG.o
+                0x00001638       0x50 ./NTAG/NTAG.o
  .text.inti_ntag
-                0x00001670       0x18 ./NTAG/NTAG.o
-                0x00001670                inti_ntag
+                0x00001688       0x18 ./NTAG/NTAG.o
+                0x00001688                inti_ntag
  .text.ntag_change_local_i2c_address
-                0x00001688        0xc ./NTAG/NTAG.o
-                0x00001688                ntag_change_local_i2c_address
+                0x000016a0        0xc ./NTAG/NTAG.o
+                0x000016a0                ntag_change_local_i2c_address
  .text.ntag_change_device_i2c_address
-                0x00001694       0x34 ./NTAG/NTAG.o
-                0x00001694                ntag_change_device_i2c_address
+                0x000016ac       0x34 ./NTAG/NTAG.o
+                0x000016ac                ntag_change_device_i2c_address
  .text.ntag_factory_resest_of_memory
-                0x000016c8       0x8c ./NTAG/NTAG.o
-                0x000016c8                ntag_factory_resest_of_memory
+                0x000016e0       0x8c ./NTAG/NTAG.o
+                0x000016e0                ntag_factory_resest_of_memory
  .text.write_i2c_with_command.constprop.0
-                0x00001754       0x50 ./ADS1115/ads1115.o
+                0x0000176c       0x50 ./ADS1115/ads1115.o
  .text.ADS1115_useAlertPin
-                0x000017a4       0x14 ./ADS1115/ads1115.o
-                0x000017a4                ADS1115_useAlertPin
+                0x000017bc       0x14 ./ADS1115/ads1115.o
+                0x000017bc                ADS1115_useAlertPin
  .text.ADS1115_setMUX
-                0x000017b8       0x18 ./ADS1115/ads1115.o
-                0x000017b8                ADS1115_setMUX
+                0x000017d0       0x18 ./ADS1115/ads1115.o
+                0x000017d0                ADS1115_setMUX
  .text.ADS1115_setGain
-                0x000017d0       0x30 ./ADS1115/ads1115.o
-                0x000017d0                ADS1115_setGain
+                0x000017e8       0x30 ./ADS1115/ads1115.o
+                0x000017e8                ADS1115_setGain
  .text.ADS1115_setDataRate
-                0x00001800       0x2c ./ADS1115/ads1115.o
-                0x00001800                ADS1115_setDataRate
+                0x00001818       0x2c ./ADS1115/ads1115.o
+                0x00001818                ADS1115_setDataRate
  .text.init_ADS1115
-                0x0000182c       0x60 ./ADS1115/ads1115.o
-                0x0000182c                init_ADS1115
+                0x00001844       0x60 ./ADS1115/ads1115.o
+                0x00001844                init_ADS1115
  .text.ADS1115_getSamplingPeriod_us
-                0x0000188c        0xc ./ADS1115/ads1115.o
-                0x0000188c                ADS1115_getSamplingPeriod_us
+                0x000018a4        0xc ./ADS1115/ads1115.o
+                0x000018a4                ADS1115_getSamplingPeriod_us
  .text.ADS1115_setConversionMode
-                0x00001898       0x18 ./ADS1115/ads1115.o
-                0x00001898                ADS1115_setConversionMode
- .text.ADS1115_sendConfig
                 0x000018b0       0x18 ./ADS1115/ads1115.o
-                0x000018b0                ADS1115_sendConfig
+                0x000018b0                ADS1115_setConversionMode
+ .text.ADS1115_sendConfig
+                0x000018c8       0x18 ./ADS1115/ads1115.o
+                0x000018c8                ADS1115_sendConfig
  .text.ADS1115_startContinuous
-                0x000018c8       0x38 ./ADS1115/ads1115.o
-                0x000018c8                ADS1115_startContinuous
+                0x000018e0       0x38 ./ADS1115/ads1115.o
+                0x000018e0                ADS1115_startContinuous
  .text.ADS1115_getLastConversionResults
-                0x00001900       0x60 ./ADS1115/ads1115.o
-                0x00001900                ADS1115_getLastConversionResults
+                0x00001918       0x60 ./ADS1115/ads1115.o
+                0x00001918                ADS1115_getLastConversionResults
  .text.ADS1115_get_THMS_TimeMeasurementValue_array
-                0x00001960       0x90 ./ADS1115/ads1115.o
-                0x00001960                ADS1115_get_THMS_TimeMeasurementValue_array
- .text.malloc   0x000019f0       0xd0 c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(alloc.o)
-                0x000019f0                malloc
+                0x00001978       0x90 ./ADS1115/ads1115.o
+                0x00001978                ADS1115_get_THMS_TimeMeasurementValue_array
+ .text.malloc   0x00001a08       0xd0 c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(alloc.o)
+                0x00001a08                malloc
  .text._Csys_alloc
-                0x00001ac0       0x20 c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(alloc.o)
-                0x00001ac0                _Csys_alloc
- .text._initio  0x00001ae0       0x7c c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(initio.o)
-                0x00001ae0                _initio
+                0x00001ad8       0x20 c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(alloc.o)
+                0x00001ad8                _Csys_alloc
+ .text._initio  0x00001af8       0x7c c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(initio.o)
+                0x00001af8                _initio
  .text.__vfprintf
-                0x00001b5c      0xd40 c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(printf.o)
-                0x00001b5c                __vfprintf
+                0x00001b74      0xd40 c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(printf.o)
+                0x00001b74                __vfprintf
  .text._sprintf
-                0x0000289c       0x6c c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(printf.o)
-                0x0000289c                _sprintf
- .text.setvbuf  0x00002908       0x4c c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(setvbuf.o)
-                0x00002908                setvbuf
- .text.strcpy   0x00002954       0x44 c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(strcpy.o)
-                0x00002954                strcpy
- .text.strlen   0x00002998       0x58 c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(strlen.o)
-                0x00002998                strlen
- .text._sbrk    0x000029f0       0x44 c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(_cr_sbrk.o)
-                0x000029f0                _sbrk
+                0x000028b4       0x6c c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(printf.o)
+                0x000028b4                _sprintf
+ .text.setvbuf  0x00002920       0x4c c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(setvbuf.o)
+                0x00002920                setvbuf
+ .text.strcpy   0x0000296c       0x44 c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(strcpy.o)
+                0x0000296c                strcpy
+ .text.strlen   0x000029b0       0x58 c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(strlen.o)
+                0x000029b0                strlen
+ .text._sbrk    0x00002a08       0x44 c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(_cr_sbrk.o)
+                0x00002a08                _sbrk
  .text._deferredlazyseek
-                0x00002a34       0x40 c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(_deferredlazyseek.o)
-                0x00002a34                _deferredlazyseek
+                0x00002a4c       0x40 c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(_deferredlazyseek.o)
+                0x00002a4c                _deferredlazyseek
  .text.__flsbuf
-                0x00002a74      0x150 c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(_deferredlazyseek.o)
-                0x00002a74                __flsbuf
- .text._fdopen  0x00002bc4       0x74 c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(_fdopen.o)
-                0x00002bc4                _fdopen
- .text._fflush  0x00002c38       0x60 c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(_fflush.o)
-                0x00002c38                _fflush
+                0x00002a8c      0x150 c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(_deferredlazyseek.o)
+                0x00002a8c                __flsbuf
+ .text._fdopen  0x00002bdc       0x74 c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(_fdopen.o)
+                0x00002bdc                _fdopen
+ .text._fflush  0x00002c50       0x60 c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(_fflush.o)
+                0x00002c50                _fflush
  .text._Cwritebuf
-                0x00002c98       0x68 c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(_writebuf.o)
-                0x00002c98                _Cwritebuf
- .text.fclose   0x00002d00       0x5c c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(fclose.o)
-                0x00002d00                fclose
- .text.fflush   0x00002d5c       0x44 c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(fflush.o)
-                0x00002d5c                fflush
- .text.fseek    0x00002da0       0xf4 c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(fseek.o)
-                0x00002da0                fseek
- .text.ftell    0x00002e94       0x48 c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(ftell.o)
-                0x00002e94                ftell
+                0x00002cb0       0x68 c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(_writebuf.o)
+                0x00002cb0                _Cwritebuf
+ .text.fclose   0x00002d18       0x5c c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(fclose.o)
+                0x00002d18                fclose
+ .text.fflush   0x00002d74       0x44 c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(fflush.o)
+                0x00002d74                fflush
+ .text.fseek    0x00002db8       0xf4 c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(fseek.o)
+                0x00002db8                fseek
+ .text.ftell    0x00002eac       0x48 c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(ftell.o)
+                0x00002eac                ftell
  .text.__check_heap_overflow
-                0x00002edc       0x14 c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(_cr_check_heap.o)
-                0x00002edc                __check_heap_overflow
+                0x00002ef4       0x14 c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(_cr_check_heap.o)
+                0x00002ef4                __check_heap_overflow
  .text._do_fflush
-                0x00002ef0       0x48 c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(_do_fflush.o)
-                0x00002ef0                _do_fflush
+                0x00002f08       0x48 c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(_do_fflush.o)
+                0x00002f08                _do_fflush
  .text.reanimateNTAG
-                0x00002f38       0x1c ./source/Main_NTAG_THMS.o
-                0x00002f38                reanimateNTAG
+                0x00002f50       0x1c ./source/Main_NTAG_THMS.o
+                0x00002f50                reanimateNTAG
  .text.CLOCK_UpdateClkSrc
-                0x00002f54       0x14 ./drivers/fsl_clock.o
+                0x00002f6c       0x14 ./drivers/fsl_clock.o
  .text.I2C_MasterSetBaudRate
-                0x00002f68       0xa6 ./drivers/fsl_i2c.o
-                0x00002f68                I2C_MasterSetBaudRate
+                0x00002f80       0xa6 ./drivers/fsl_i2c.o
+                0x00002f80                I2C_MasterSetBaudRate
  .text.SWM_SetMovablePinSelect
-                0x0000300e       0x1e ./drivers/fsl_swm.o
-                0x0000300e                SWM_SetMovablePinSelect
+                0x00003026       0x1e ./drivers/fsl_swm.o
+                0x00003026                SWM_SetMovablePinSelect
  .text.USART_GetDefaultConfig
-                0x0000302c       0x20 ./drivers/fsl_usart.o
-                0x0000302c                USART_GetDefaultConfig
+                0x00003044       0x20 ./drivers/fsl_usart.o
+                0x00003044                USART_GetDefaultConfig
  .text.USART_SetBaudRate
-                0x0000304c       0x1c ./drivers/fsl_usart.o
-                0x0000304c                USART_SetBaudRate
+                0x00003064       0x1c ./drivers/fsl_usart.o
+                0x00003064                USART_SetBaudRate
  .text.USART_WriteBlocking
-                0x00003068       0x24 ./drivers/fsl_usart.o
-                0x00003068                USART_WriteBlocking
+                0x00003080       0x24 ./drivers/fsl_usart.o
+                0x00003080                USART_WriteBlocking
  .text.SystemInitHook
-                0x0000308c        0x2 ./device/system_LPC812.o
-                0x0000308c                SystemInitHook
+                0x000030a4        0x2 ./device/system_LPC812.o
+                0x000030a4                SystemInitHook
  .text.thms_readAlertPinCheck
-                0x0000308e        0xe ./THMS/THMS.o
-                0x0000308e                thms_readAlertPinCheck
+                0x000030a6        0xe ./THMS/THMS.o
+                0x000030a6                thms_readAlertPinCheck
  .text.thms2ndef_freemMessTextArray
-                0x0000309c        0x8 ./THMS/thms_2_ndef.o
-                0x0000309c                thms2ndef_freemMessTextArray
+                0x000030b4        0x8 ./THMS/thms_2_ndef.o
+                0x000030b4                thms2ndef_freemMessTextArray
  .text.thms2ndef_getNDEFMessageStartAndEndPoint
-                0x000030a4       0x30 ./THMS/thms_2_ndef.o
-                0x000030a4                thms2ndef_getNDEFMessageStartAndEndPoint
+                0x000030bc       0x30 ./THMS/thms_2_ndef.o
+                0x000030bc                thms2ndef_getNDEFMessageStartAndEndPoint
  .text.thms2ndef_get_FSM_DoInstruction_inNDEF16Bytes
-                0x000030d4       0x8e ./THMS/thms_2_ndef.o
-                0x000030d4                thms2ndef_get_FSM_DoInstruction_inNDEF16Bytes
+                0x000030ec       0x8e ./THMS/thms_2_ndef.o
+                0x000030ec                thms2ndef_get_FSM_DoInstruction_inNDEF16Bytes
  .text.ntag_read_userMemory
-                0x00003162       0x3c ./NTAG/NTAG.o
-                0x00003162                ntag_read_userMemory
+                0x0000317a       0x3c ./NTAG/NTAG.o
+                0x0000317a                ntag_read_userMemory
  .text.ntag_write_userMemory
-                0x0000319e       0x66 ./NTAG/NTAG.o
-                0x0000319e                ntag_write_userMemory
+                0x000031b6       0x66 ./NTAG/NTAG.o
+                0x000031b6                ntag_write_userMemory
  .text.ntag_write_session_or_config_register
-                0x00003204       0x18 ./NTAG/NTAG.o
-                0x00003204                ntag_write_session_or_config_register
+                0x0000321c       0x18 ./NTAG/NTAG.o
+                0x0000321c                ntag_write_session_or_config_register
  .text.ntag_nfcs_i2c_rst
-                0x0000321c       0x16 ./NTAG/NTAG.o
-                0x0000321c                ntag_nfcs_i2c_rst
+                0x00003234       0x16 ./NTAG/NTAG.o
+                0x00003234                ntag_nfcs_i2c_rst
  .text.create_ndef_record
-                0x00003232      0x120 ./NDEF_Parse/ndef_parse.o
-                0x00003232                create_ndef_record
+                0x0000324a      0x120 ./NDEF_Parse/ndef_parse.o
+                0x0000324a                create_ndef_record
  .text.free_ndef_record_struct_and_data_memory
-                0x00003352       0x12 ./NDEF_Parse/ndef_parse.o
-                0x00003352                free_ndef_record_struct_and_data_memory
+                0x0000336a       0x12 ./NDEF_Parse/ndef_parse.o
+                0x0000336a                free_ndef_record_struct_and_data_memory
  .text.ADS1115_stopContiuous
-                0x00003364       0x10 ./ADS1115/ads1115.o
-                0x00003364                ADS1115_stopContiuous
- .text.__main   0x00003374        0xc c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_nohost_nf.a(_cr__main.o)
-                0x00003374                __main
- .text.memcpy   0x00003380        0x8 c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(memcpy.o)
-                0x00003380                memcpy
- .text.memset   0x00003388        0x8 c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(memset.o)
-                0x00003388                memset
- .text.free     0x00003390       0x2c c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(alloc.o)
-                0x00003390                free
+                0x0000337c       0x10 ./ADS1115/ads1115.o
+                0x0000337c                ADS1115_stopContiuous
+ .text.__main   0x0000338c        0xc c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_nohost_nf.a(_cr__main.o)
+                0x0000338c                __main
+ .text.memcpy   0x00003398        0x8 c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(memcpy.o)
+                0x00003398                memcpy
+ .text.memset   0x000033a0        0x8 c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(memset.o)
+                0x000033a0                memset
+ .text.free     0x000033a8       0x2c c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(alloc.o)
+                0x000033a8                free
  .text.no_fp_display
-                0x000033bc        0x4 c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(printf.o)
- .text.remove   0x000033c0       0x12 c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(remove.o)
-                0x000033c0                remove
+                0x000033d4        0x4 c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(printf.o)
+ .text.remove   0x000033d8       0x12 c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(remove.o)
+                0x000033d8                remove
  .text.__aeabi_division_idivmod
-                0x000033d2       0x78 c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v6-m/nofp\libcr_eabihelpers.a(division_32.o)
-                0x000033d2                __aeabi_idivmod
-                0x000033d2                __aeabi_idiv
-                0x000033d8                __aeabi_uidivmod
-                0x000033d8                __aeabi_uidiv
+                0x000033ea       0x78 c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v6-m/nofp\libcr_eabihelpers.a(division_32.o)
+                0x000033ea                __aeabi_idivmod
+                0x000033ea                __aeabi_idiv
+                0x000033f0                __aeabi_uidivmod
+                0x000033f0                __aeabi_uidiv
  .text.__aeabi_division_idiv0
-                0x0000344a        0x2 c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v6-m/nofp\libcr_eabihelpers.a(division_idiv0.o)
-                0x0000344a                __aeabi_idiv0
+                0x00003462        0x2 c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v6-m/nofp\libcr_eabihelpers.a(division_idiv0.o)
+                0x00003462                __aeabi_idiv0
  .text.__aeabi_llong_lmul
-                0x0000344c       0x2e c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v6-m/nofp\libcr_eabihelpers.a(llong.o)
-                0x0000344c                __aeabi_lmul
+                0x00003464       0x2e c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v6-m/nofp\libcr_eabihelpers.a(llong.o)
+                0x00003464                __aeabi_lmul
  .text.__aeabi_memcpy
-                0x0000347a       0x2c c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v6-m/nofp\libcr_eabihelpers.a(memcpy.o)
-                0x0000347a                __aeabi_memcpy4
-                0x0000347a                __aeabi_memcpy8
-                0x0000347a                __aeabi_memcpy
+                0x00003492       0x2c c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v6-m/nofp\libcr_eabihelpers.a(memcpy.o)
+                0x00003492                __aeabi_memcpy4
+                0x00003492                __aeabi_memcpy8
+                0x00003492                __aeabi_memcpy
  .text.__aeabi_memset_lowlevel
-                0x000034a6       0x2a c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v6-m/nofp\libcr_eabihelpers.a(memcpy.o)
-                0x000034a6                __aeabi_lowlevel_memset
+                0x000034be       0x2a c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v6-m/nofp\libcr_eabihelpers.a(memcpy.o)
+                0x000034be                __aeabi_lowlevel_memset
  .text.__gnu_thumb1_case_uqi
-                0x000034d0       0x10 c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v6-m/nofp\libcr_eabihelpers.a(thumb1_switch_helpers.o)
-                0x000034d0                __gnu_thumb1_case_uqi
+                0x000034e8       0x10 c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v6-m/nofp\libcr_eabihelpers.a(thumb1_switch_helpers.o)
+                0x000034e8                __gnu_thumb1_case_uqi
  .text.__gnu_thumb1_case_shi
-                0x000034e0       0x10 c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v6-m/nofp\libcr_eabihelpers.a(thumb1_switch_helpers.o)
-                0x000034e0                __gnu_thumb1_case_shi
+                0x000034f8       0x10 c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/thumb/v6-m/nofp\libcr_eabihelpers.a(thumb1_switch_helpers.o)
+                0x000034f8                __gnu_thumb1_case_shi
  .text.__sys_appexit
-                0x000034f0        0x2 c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_nohost_nf.a(__sys_appexit.o)
-                0x000034f0                __sys_appexit
-                0x000034f0                __exit
+                0x00003508        0x2 c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_nohost_nf.a(__sys_appexit.o)
+                0x00003508                __sys_appexit
+                0x00003508                __exit
  .text.__sys_close
-                0x000034f2        0x6 c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_nohost_nf.a(__sys_close.o)
-                0x000034f2                __sys_close
+                0x0000350a        0x6 c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_nohost_nf.a(__sys_close.o)
+                0x0000350a                __sys_close
  .text.__sys_flen
-                0x000034f8        0x6 c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_nohost_nf.a(__sys_flen.o)
-                0x000034f8                __sys_flen
+                0x00003510        0x6 c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_nohost_nf.a(__sys_flen.o)
+                0x00003510                __sys_flen
  .text.__sys_istty
-                0x000034fe        0x6 c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_nohost_nf.a(__sys_istty.o)
-                0x000034fe                __sys_istty
+                0x00003516        0x6 c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_nohost_nf.a(__sys_istty.o)
+                0x00003516                __sys_istty
  .text.__sys_remove
-                0x00003504        0x6 c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_nohost_nf.a(__sys_remove.o)
-                0x00003504                __sys_remove
+                0x0000351c        0x6 c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_nohost_nf.a(__sys_remove.o)
+                0x0000351c                __sys_remove
  .text.__sys_seek
-                0x0000350a        0x6 c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_nohost_nf.a(__sys_seek.o)
-                0x0000350a                __sys_seek
+                0x00003522        0x6 c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_nohost_nf.a(__sys_seek.o)
+                0x00003522                __sys_seek
  .text.__sys_tmpnam
-                0x00003510        0x6 c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_nohost_nf.a(__sys_tmpnam.o)
-                0x00003510                __sys_tmpnam
+                0x00003528        0x6 c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_nohost_nf.a(__sys_tmpnam.o)
+                0x00003528                __sys_tmpnam
  .text.__sys_write
-                0x00003516        0x4 c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_nohost_nf.a(__sys_write.o)
-                0x00003516                __sys_write
+                0x0000352e        0x4 c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_nohost_nf.a(__sys_write.o)
+                0x0000352e                __sys_write
  *(SORT_BY_ALIGNMENT(.rodata) SORT_BY_ALIGNMENT(.rodata.*) SORT_BY_ALIGNMENT(.constdata) SORT_BY_ALIGNMENT(.constdata.*))
- *fill*         0x0000351a        0x2 ff
+ *fill*         0x00003532        0x2 ff
  .rodata.s_UsartAdapterBase
-                0x0000351c        0xc ./component/uart/fsl_adapter_miniusart.o
+                0x00003534        0xc ./component/uart/fsl_adapter_miniusart.o
  .rodata.DR_Settings
-                0x00003528       0x40 ./ADS1115/ads1115.o
-                0x00003528                DR_Settings
+                0x00003540       0x40 ./ADS1115/ads1115.o
+                0x00003540                DR_Settings
  .rodata.PGA_Settings
-                0x00003568       0x30 ./ADS1115/ads1115.o
-                0x00003568                PGA_Settings
+                0x00003580       0x30 ./ADS1115/ads1115.o
+                0x00003580                PGA_Settings
  .rodata.__num_Ciob_streams
-                0x00003598        0x4 c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_nohost_nf.a(__ciob.o)
-                0x00003598                __num_Ciob_streams
+                0x000035b0        0x4 c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_nohost_nf.a(__ciob.o)
+                0x000035b0                __num_Ciob_streams
  .rodata.set_NDEF_Text_Record_on_NTAG.str1.1
-                0x0000359c        0x2 ./source/Main_NTAG_THMS.o
+                0x000035b4        0x2 ./source/Main_NTAG_THMS.o
  .rodata.set_NTAG_do_instruction.str1.1
-                0x0000359e       0x15 ./source/Main_NTAG_THMS.o
+                0x000035b6       0x15 ./source/Main_NTAG_THMS.o
  .rodata.main.str1.1
-                0x000035b3        0xb ./source/Main_NTAG_THMS.o
+                0x000035cb        0xb ./source/Main_NTAG_THMS.o
  .rodata.s_i2cResets
-                0x000035be        0x4 ./drivers/fsl_i2c.o
+                0x000035d6        0x4 ./drivers/fsl_i2c.o
  .rodata.s_usartClock
-                0x000035c2        0x3 ./drivers/fsl_usart.o
+                0x000035da        0x3 ./drivers/fsl_usart.o
  .rodata.s_usartRest
-                0x000035c5        0x3 ./drivers/fsl_usart.o
+                0x000035dd        0x3 ./drivers/fsl_usart.o
  .rodata.thms_get_sensor_signal.str1.1
-                0x000035c8       0x79 ./THMS/THMS.o
+                0x000035e0       0x79 ./THMS/THMS.o
                                  0x7c (size before relaxing)
- .rodata        0x00003641       0x12 ./THMS/THMS.o
+ .rodata        0x00003659       0x12 ./THMS/THMS.o
  .rodata.thms2ndef_generateMeasTextAndDoInstruction.str1.1
-                0x00003653       0x26 ./THMS/thms_2_ndef.o
+                0x0000366b       0x26 ./THMS/thms_2_ndef.o
  .rodata.thms2ndef_generateConfigInfoTextAndDoInstruction.str1.1
-                0x00003679       0x20 ./THMS/thms_2_ndef.o
+                0x00003691       0x2e ./THMS/thms_2_ndef.o
  .rodata.thms2ndef_set_FSM_DoInstruction.str1.1
-                0x00003699        0x4 ./THMS/thms_2_ndef.o
- .rodata        0x0000369d       0x20 ./THMS/thms_2_ndef.o
- .rodata        0x000036bd       0x50 ./NTAG/NTAG.o
+                0x000036bf        0x4 ./THMS/thms_2_ndef.o
+ .rodata        0x000036c3       0x20 ./THMS/thms_2_ndef.o
+ .rodata        0x000036e3       0x50 ./NTAG/NTAG.o
  .rodata._Csys_alloc.str1.1
-                0x0000370d       0x18 c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(alloc.o)
+                0x00003733       0x18 c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(alloc.o)
  .rodata._initio.str1.1
-                0x00003725        0x4 c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(initio.o)
+                0x0000374b        0x4 c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(initio.o)
  .rodata.__vfprintf.str1.1
-                0x00003729       0x37 c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(printf.o)
+                0x0000374f       0x37 c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(printf.o)
                                  0x38 (size before relaxing)
-                0x00003760                . = ALIGN (0x4)
+                0x00003788                . = ALIGN (0x4)
+ *fill*         0x00003786        0x2 ff
 
-.glue_7         0x00003760        0x0
- .glue_7        0x00003760        0x0 linker stubs
+.glue_7         0x00003788        0x0
+ .glue_7        0x00003788        0x0 linker stubs
 
-.glue_7t        0x00003760        0x0
- .glue_7t       0x00003760        0x0 linker stubs
+.glue_7t        0x00003788        0x0
+ .glue_7t       0x00003788        0x0 linker stubs
 
-.vfp11_veneer   0x00003760        0x0
- .vfp11_veneer  0x00003760        0x0 linker stubs
+.vfp11_veneer   0x00003788        0x0
+ .vfp11_veneer  0x00003788        0x0 linker stubs
 
-.v4_bx          0x00003760        0x0
- .v4_bx         0x00003760        0x0 linker stubs
+.v4_bx          0x00003788        0x0
+ .v4_bx         0x00003788        0x0 linker stubs
 
-.iplt           0x00003760        0x0
- .iplt          0x00003760        0x0 ./utilities/fsl_debug_console.o
+.iplt           0x00003788        0x0
+ .iplt          0x00003788        0x0 ./utilities/fsl_debug_console.o
 
-.rel.dyn        0x00003760        0x0
- .rel.iplt      0x00003760        0x0 ./utilities/fsl_debug_console.o
+.rel.dyn        0x00003788        0x0
+ .rel.iplt      0x00003788        0x0 ./utilities/fsl_debug_console.o
 
 .ARM.extab
  *(SORT_BY_ALIGNMENT(.ARM.extab*) SORT_BY_ALIGNMENT(.gnu.linkonce.armextab.*))
 
-.ARM.exidx      0x00003760        0x0
-                0x00003760                __exidx_start = .
+.ARM.exidx      0x00003788        0x0
+                0x00003788                __exidx_start = .
  *(SORT_BY_ALIGNMENT(.ARM.exidx*) SORT_BY_ALIGNMENT(.gnu.linkonce.armexidx.*))
-                0x00003760                __exidx_end = .
-                0x00003760                _etext = .
+                0x00003788                __exidx_end = .
+                0x00003788                _etext = .
 
 .mtb_buffer_RAM2
  *(SORT_BY_ALIGNMENT(.mtb.$RAM2*))
  *(SORT_BY_ALIGNMENT(.mtb.$IAP_SRAM*))
 
-.data_RAM2      0x10000fe0        0x0 load address 0x00003760
+.data_RAM2      0x10000fe0        0x0 load address 0x00003788
  FILL mask 0xff
                 [!provide]                PROVIDE (__start_data_RAM2 = .)
                 [!provide]                PROVIDE (__start_data_IAP_SRAM = .)
@@ -1362,7 +1363,7 @@ END GROUP
                 0x10000080                . = ALIGN (0x4)
                 0x10000080                _end_uninit_RESERVED = .
 
-.data           0x10000080       0x38 load address 0x00003760
+.data           0x10000080       0x50 load address 0x00003788
  FILL mask 0xff
                 0x10000080                _data = .
                 [!provide]                PROVIDE (__start_data_RAM = .)
@@ -1379,21 +1380,25 @@ END GROUP
  .data.conversionTime_inms_m
                 0x10000084        0x4 ./ADS1115/ads1115.o
  .data.fw_version
-                0x10000088        0x6 ./source/Main_NTAG_THMS.o
+                0x10000088        0xa ./source/Main_NTAG_THMS.o
  .data.ms_type_m
-                0x1000008e       0x14 ./source/Main_NTAG_THMS.o
+                0x10000092       0x14 ./source/Main_NTAG_THMS.o
  .data.next_doInstruction
-                0x100000a2        0x1 ./source/Main_NTAG_THMS.o
+                0x100000a6        0x1 ./source/Main_NTAG_THMS.o
+ .data.pulse_fit_start_10_m
+                0x100000a7        0xa ./source/Main_NTAG_THMS.o
+ .data.pulse_length_10_m
+                0x100000b1        0xa ./source/Main_NTAG_THMS.o
  .data.ss_type_m
-                0x100000a3       0x14 ./source/Main_NTAG_THMS.o
-                0x100000b8                . = ALIGN (0x4)
- *fill*         0x100000b7        0x1 ff
-                0x100000b8                _edata = .
+                0x100000bb       0x14 ./source/Main_NTAG_THMS.o
+                0x100000d0                . = ALIGN (0x4)
+ *fill*         0x100000cf        0x1 ff
+                0x100000d0                _edata = .
                 [!provide]                PROVIDE (__end_data_RAM = .)
                 [!provide]                PROVIDE (__end_data_SRAM = .)
 
-.igot.plt       0x100000b8        0x0 load address 0x00003798
- .igot.plt      0x100000b8        0x0 ./utilities/fsl_debug_console.o
+.igot.plt       0x100000d0        0x0 load address 0x000037d8
+ .igot.plt      0x100000d0        0x0 ./utilities/fsl_debug_console.o
 
 .bss_RAM2       0x10000fe0        0x0
                 [!provide]                PROVIDE (__start_bss_RAM2 = .)
@@ -1406,77 +1411,77 @@ END GROUP
                 [!provide]                PROVIDE (__end_bss_RAM2 = .)
                 [!provide]                PROVIDE (__end_bss_IAP_SRAM = .)
 
-.bss            0x100000b8      0x1ac
-                0x100000b8                _bss = .
+.bss            0x100000d0      0x1ac
+                0x100000d0                _bss = .
                 [!provide]                PROVIDE (__start_bss_RAM = .)
                 [!provide]                PROVIDE (__start_bss_SRAM = .)
  *(SORT_BY_ALIGNMENT(.bss*))
  .bss.s_debugConsole
-                0x100000b8       0x14 ./utilities/fsl_debug_console.o
+                0x100000d0       0x14 ./utilities/fsl_debug_console.o
  .bss.g_systickCounter
-                0x100000cc        0x4 ./timer/timer.o
-                0x100000cc                g_systickCounter
+                0x100000e4        0x4 ./timer/timer.o
+                0x100000e4                g_systickCounter
  .bss.MeasurementSignal
-                0x100000d0        0x4 ./source/Main_NTAG_THMS.o
+                0x100000e8        0x4 ./source/Main_NTAG_THMS.o
  .bss.SensorSignal
-                0x100000d4        0x4 ./source/Main_NTAG_THMS.o
+                0x100000ec        0x4 ./source/Main_NTAG_THMS.o
  .bss.masterConfig
-                0x100000d8        0xc ./source/Main_NTAG_THMS.o
+                0x100000f0        0xc ./source/Main_NTAG_THMS.o
  .bss.rsqrt_indicator
-                0x100000e4        0x4 ./source/Main_NTAG_THMS.o
+                0x100000fc        0x4 ./source/Main_NTAG_THMS.o
  .bss.g_Ext_Clk_Freq
-                0x100000e8        0x4 ./drivers/fsl_clock.o
-                0x100000e8                g_Ext_Clk_Freq
+                0x10000100        0x4 ./drivers/fsl_clock.o
+                0x10000100                g_Ext_Clk_Freq
  .bss.g_Wdt_Osc_Freq
-                0x100000ec        0x4 ./drivers/fsl_clock.o
-                0x100000ec                g_Wdt_Osc_Freq
+                0x10000104        0x4 ./drivers/fsl_clock.o
+                0x10000104                g_Wdt_Osc_Freq
  .bss.s_Sys_Pll_Freq
-                0x100000f0        0x4 ./drivers/fsl_clock.o
+                0x10000108        0x4 ./drivers/fsl_clock.o
  .bss.s_usartHandle
-                0x100000f4        0xc ./drivers/fsl_usart.o
+                0x1000010c        0xc ./drivers/fsl_usart.o
  .bss.s_usartIsr
-                0x10000100        0x4 ./drivers/fsl_usart.o
+                0x10000118        0x4 ./drivers/fsl_usart.o
  .bss.i2c_type_base_p_m
-                0x10000104        0x4 ./NTAG/NTAG.o
+                0x1000011c        0x4 ./NTAG/NTAG.o
  .bss.deltaTCorrectionTimeUs_m
-                0x10000108        0x4 ./ADS1115/ads1115.o
+                0x10000120        0x4 ./ADS1115/ads1115.o
  .bss.i2c_type_base_p_m
-                0x1000010c        0x4 ./ADS1115/ads1115.o
+                0x10000124        0x4 ./ADS1115/ads1115.o
  .bss.pga_amplification_inpv_m
-                0x10000110        0x4 ./ADS1115/ads1115.o
+                0x10000128        0x4 ./ADS1115/ads1115.o
  .bss.sample_interval_us_m
-                0x10000114        0x4 ./ADS1115/ads1115.o
+                0x1000012c        0x4 ./ADS1115/ads1115.o
  .bss.__end_of_heap
-                0x10000118        0x4 c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(__init_alloc.o)
-                0x10000118                __end_of_heap
- .bss.__heaps   0x1000011c        0x4 c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(__init_alloc.o)
-                0x1000011c                __heaps
- .bss.errno     0x10000120        0x4 c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(errno.o)
-                0x10000120                errno
- .bss.__Ciob    0x10000124       0xb4 c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_nohost_nf.a(__ciob.o)
-                0x10000124                __Ciob
+                0x10000130        0x4 c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(__init_alloc.o)
+                0x10000130                __end_of_heap
+ .bss.__heaps   0x10000134        0x4 c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(__init_alloc.o)
+                0x10000134                __heaps
+ .bss.errno     0x10000138        0x4 c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_c.a(errno.o)
+                0x10000138                errno
+ .bss.__Ciob    0x1000013c       0xb4 c:/nxp/mcuxpressoide_11.3.0_5222/ide/plugins/com.nxp.mcuxpresso.tools.win32_11.3.0.202008311133/tools/bin/../lib/gcc/arm-none-eabi/9.3.1/../../../../arm-none-eabi/lib/thumb/v6-m/nofp\libcr_nohost_nf.a(__ciob.o)
+                0x1000013c                __Ciob
  .bss.configRegister_m
-                0x100001d8        0x2 ./ADS1115/ads1115.o
+                0x100001f0        0x2 ./ADS1115/ads1115.o
  .bss.fsm_state_m
-                0x100001da        0x1 ./source/Main_NTAG_THMS.o
+                0x100001f2        0x1 ./source/Main_NTAG_THMS.o
  .bss.lastError
-                0x100001db        0x1 ./source/Main_NTAG_THMS.o
+                0x100001f3        0x1 ./source/Main_NTAG_THMS.o
  .bss.measurementCout
-                0x100001dc        0x1 ./source/Main_NTAG_THMS.o
+                0x100001f4        0x1 ./source/Main_NTAG_THMS.o
  .bss.ntagUserMemoryVal
-                0x100001dd       0x80 ./source/Main_NTAG_THMS.o
+                0x100001f5       0x80 ./source/Main_NTAG_THMS.o
  .bss.resetIndicator
-                0x1000025d        0x1 ./source/Main_NTAG_THMS.o
+                0x10000275        0x1 ./source/Main_NTAG_THMS.o
  .bss.ntag_config_m
-                0x1000025e        0x1 ./NTAG/NTAG.o
+                0x10000276        0x1 ./NTAG/NTAG.o
  .bss.i2c_address_m
-                0x1000025f        0x1 ./ADS1115/ads1115.o
+                0x10000277        0x1 ./ADS1115/ads1115.o
  .bss.useAlertPin_m
-                0x10000260        0x1 ./ADS1115/ads1115.o
+                0x10000278        0x1 ./ADS1115/ads1115.o
  *(SORT_BY_ALIGNMENT(COMMON))
-                0x10000264                . = ALIGN (0x4)
- *fill*         0x10000261        0x3 
-                0x10000264                _ebss = .
+                0x1000027c                . = ALIGN (0x4)
+ *fill*         0x10000279        0x3 
+                0x1000027c                _ebss = .
                 [!provide]                PROVIDE (__end_bss_RAM = .)
                 [!provide]                PROVIDE (__end_bss_SRAM = .)
                 [!provide]                PROVIDE (end = .)
@@ -1492,64 +1497,64 @@ END GROUP
                 [!provide]                PROVIDE (__end_noinit_RAM2 = .)
                 [!provide]                PROVIDE (__end_noinit_IAP_SRAM = .)
 
-.noinit         0x10000264        0x0
-                0x10000264                _noinit = .
+.noinit         0x1000027c        0x0
+                0x1000027c                _noinit = .
                 [!provide]                PROVIDE (__start_noinit_RAM = .)
                 [!provide]                PROVIDE (__start_noinit_SRAM = .)
  *(SORT_BY_ALIGNMENT(.noinit*))
-                0x10000264                . = ALIGN (0x4)
-                0x10000264                _end_noinit = .
+                0x1000027c                . = ALIGN (0x4)
+                0x1000027c                _end_noinit = .
                 [!provide]                PROVIDE (__end_noinit_RAM = .)
                 [!provide]                PROVIDE (__end_noinit_SRAM = .)
                 0x000000f8                _HeapSize = 0xf8
 
-.heap           0x10000264       0xf8
-                0x10000264                _pvHeapStart = .
-                0x1000035c                . = (. + _HeapSize)
- *fill*         0x10000264       0xf8 
-                0x1000035c                . = ALIGN (0x4)
-                0x1000035c                _pvHeapLimit = .
+.heap           0x1000027c       0xf8
+                0x1000027c                _pvHeapStart = .
+                0x10000374                . = (. + _HeapSize)
+ *fill*         0x1000027c       0xf8 
+                0x10000374                . = ALIGN (0x4)
+                0x10000374                _pvHeapLimit = .
                 0x000000f8                _StackSize = 0xf8
 
 .heap2stackfill
-                0x1000035c       0xf8
-                0x10000454                . = (. + _StackSize)
- *fill*         0x1000035c       0xf8 
+                0x10000374       0xf8
+                0x1000046c                . = (. + _StackSize)
+ *fill*         0x10000374       0xf8 
 
 .stack          0x10000ee8        0x0
                 0x10000ee8                _vStackBase = .
                 0x10000ee8                . = ALIGN (0x4)
                 0x10000fe0                _vStackTop = (. + _StackSize)
-                0xefffe435                PROVIDE (__valid_user_code_checksum = (0x0 - (((_vStackTop + (ResetISR + 0x1)) + (DEFINED (NMI_Handler)?NMI_Handler:M0_NMI_Handler + 0x1)) + (DEFINED (HardFault_Handler)?HardFault_Handler:M0_HardFault_Handler + 0x1))))
+                0xefffe425                PROVIDE (__valid_user_code_checksum = (0x0 - (((_vStackTop + (ResetISR + 0x1)) + (DEFINED (NMI_Handler)?NMI_Handler:M0_NMI_Handler + 0x1)) + (DEFINED (HardFault_Handler)?HardFault_Handler:M0_HardFault_Handler + 0x1))))
                 0x00000000                _image_start = LOADADDR (.text)
-                0x00003798                _image_end = (LOADADDR (.data) + SIZEOF (.data))
-                0x00003798                _image_size = (_image_end - _image_start)
+                0x000037d8                _image_end = (LOADADDR (.data) + SIZEOF (.data))
+                0x000037d8                _image_size = (_image_end - _image_start)
 OUTPUT(NFC-THMS-Sensor-Tag.axf elf32-littlearm)
 LOAD linker stubs
 
-.debug_info     0x00000000    0x12cc6
+.debug_info     0x00000000    0x12d2b
  .debug_info    0x00000000     0x1563 ./utilities/fsl_debug_console.o
  .debug_info    0x00001563      0xb47 ./timer/timer.o
  .debug_info    0x000020aa      0x658 ./startup/startup_lpc812.o
- .debug_info    0x00002702     0x18f2 ./source/Main_NTAG_THMS.o
- .debug_info    0x00003ff4       0x4f ./source/mtb.o
- .debug_info    0x00004043       0x38 ./source/semihost_hardfault.o
- .debug_info    0x0000407b     0x110a ./drivers/fsl_clock.o
- .debug_info    0x00005185      0x9eb ./drivers/fsl_gpio.o
- .debug_info    0x00005b70     0x1ed4 ./drivers/fsl_i2c.o
- .debug_info    0x00007a44      0x66d ./drivers/fsl_reset.o
- .debug_info    0x000080b1      0x4c8 ./drivers/fsl_swm.o
- .debug_info    0x00008579     0x1f47 ./drivers/fsl_usart.o
- .debug_info    0x0000a4c0      0x69d ./device/system_LPC812.o
- .debug_info    0x0000ab5d      0xea2 ./component/uart/fsl_adapter_miniusart.o
- .debug_info    0x0000b9ff      0xa4b ./board/board.o
- .debug_info    0x0000c44a      0x93a ./board/clock_config.o
- .debug_info    0x0000cd84      0x919 ./board/pin_mux.o
- .debug_info    0x0000d69d      0xf1a ./THMS/THMS.o
- .debug_info    0x0000e5b7      0x9f3 ./THMS/thms_2_ndef.o
- .debug_info    0x0000efaa     0x1a28 ./NTAG/NTAG.o
- .debug_info    0x000109d2      0x927 ./NDEF_Parse/ndef_parse.o
- .debug_info    0x000112f9     0x19cd ./ADS1115/ads1115.o
+ .debug_info    0x00002702     0x192a ./source/Main_NTAG_THMS.o
+ .debug_info    0x0000402c       0x4f ./source/mtb.o
+ .debug_info    0x0000407b       0x38 ./source/semihost_hardfault.o
+ .debug_info    0x000040b3     0x110a ./drivers/fsl_clock.o
+ .debug_info    0x000051bd      0x9eb ./drivers/fsl_gpio.o
+ .debug_info    0x00005ba8     0x1ed4 ./drivers/fsl_i2c.o
+ .debug_info    0x00007a7c      0x66d ./drivers/fsl_reset.o
+ .debug_info    0x000080e9      0x4c8 ./drivers/fsl_swm.o
+ .debug_info    0x000085b1     0x1f47 ./drivers/fsl_usart.o
+ .debug_info    0x0000a4f8      0x69d ./device/system_LPC812.o
+ .debug_info    0x0000ab95      0xea2 ./component/uart/fsl_adapter_miniusart.o
+ .debug_info    0x0000ba37      0xa4b ./board/board.o
+ .debug_info    0x0000c482      0x93a ./board/clock_config.o
+ .debug_info    0x0000cdbc      0x919 ./board/pin_mux.o
+ .debug_info    0x0000d6d5      0xf1a ./THMS/THMS.o
+ .debug_info    0x0000e5ef      0xa20 ./THMS/thms_2_ndef.o
+ .debug_info    0x0000f00f     0x1a28 ./NTAG/NTAG.o
+ .debug_info    0x00010a37      0x927 ./NDEF_Parse/ndef_parse.o
+ .debug_info    0x0001135e     0x19cd ./ADS1115/ads1115.o
 
 .debug_abbrev   0x00000000     0x39be
  .debug_abbrev  0x00000000      0x3cf ./utilities/fsl_debug_console.o
@@ -1666,74 +1671,74 @@ LOAD linker stubs
  .debug_ranges  0x00001020       0x88 ./NDEF_Parse/ndef_parse.o
  .debug_ranges  0x000010a8      0x1d0 ./ADS1115/ads1115.o
 
-.debug_line     0x00000000     0x838a
+.debug_line     0x00000000     0x8385
  .debug_line    0x00000000      0xc5d ./utilities/fsl_debug_console.o
  .debug_line    0x00000c5d      0x351 ./timer/timer.o
  .debug_line    0x00000fae      0x3c3 ./startup/startup_lpc812.o
- .debug_line    0x00001371      0x94f ./source/Main_NTAG_THMS.o
- .debug_line    0x00001cc0       0x30 ./source/mtb.o
- .debug_line    0x00001cf0       0x5a ./source/semihost_hardfault.o
- .debug_line    0x00001d4a      0x896 ./drivers/fsl_clock.o
- .debug_line    0x000025e0      0x2ae ./drivers/fsl_gpio.o
- .debug_line    0x0000288e      0xf2f ./drivers/fsl_i2c.o
- .debug_line    0x000037bd      0x211 ./drivers/fsl_reset.o
- .debug_line    0x000039ce      0x26e ./drivers/fsl_swm.o
- .debug_line    0x00003c3c      0xe6e ./drivers/fsl_usart.o
- .debug_line    0x00004aaa      0x2d9 ./device/system_LPC812.o
- .debug_line    0x00004d83      0x3b3 ./component/uart/fsl_adapter_miniusart.o
- .debug_line    0x00005136      0x2e8 ./board/board.o
- .debug_line    0x0000541e      0x445 ./board/clock_config.o
- .debug_line    0x00005863      0x2b5 ./board/pin_mux.o
- .debug_line    0x00005b18      0x731 ./THMS/THMS.o
- .debug_line    0x00006249      0x6e3 ./THMS/thms_2_ndef.o
- .debug_line    0x0000692c      0x9ba ./NTAG/NTAG.o
- .debug_line    0x000072e6      0x826 ./NDEF_Parse/ndef_parse.o
- .debug_line    0x00007b0c      0x87e ./ADS1115/ads1115.o
+ .debug_line    0x00001371      0x94a ./source/Main_NTAG_THMS.o
+ .debug_line    0x00001cbb       0x30 ./source/mtb.o
+ .debug_line    0x00001ceb       0x5a ./source/semihost_hardfault.o
+ .debug_line    0x00001d45      0x896 ./drivers/fsl_clock.o
+ .debug_line    0x000025db      0x2ae ./drivers/fsl_gpio.o
+ .debug_line    0x00002889      0xf2f ./drivers/fsl_i2c.o
+ .debug_line    0x000037b8      0x211 ./drivers/fsl_reset.o
+ .debug_line    0x000039c9      0x26e ./drivers/fsl_swm.o
+ .debug_line    0x00003c37      0xe6e ./drivers/fsl_usart.o
+ .debug_line    0x00004aa5      0x2d9 ./device/system_LPC812.o
+ .debug_line    0x00004d7e      0x3b3 ./component/uart/fsl_adapter_miniusart.o
+ .debug_line    0x00005131      0x2e8 ./board/board.o
+ .debug_line    0x00005419      0x445 ./board/clock_config.o
+ .debug_line    0x0000585e      0x2b5 ./board/pin_mux.o
+ .debug_line    0x00005b13      0x731 ./THMS/THMS.o
+ .debug_line    0x00006244      0x6e3 ./THMS/thms_2_ndef.o
+ .debug_line    0x00006927      0x9ba ./NTAG/NTAG.o
+ .debug_line    0x000072e1      0x826 ./NDEF_Parse/ndef_parse.o
+ .debug_line    0x00007b07      0x87e ./ADS1115/ads1115.o
 
-.debug_str      0x00000000     0x61cb
+.debug_str      0x00000000     0x620f
  .debug_str     0x00000000     0x1340 ./utilities/fsl_debug_console.o
                                0x13a2 (size before relaxing)
  .debug_str     0x00001340      0x322 ./timer/timer.o
                                0x1004 (size before relaxing)
  .debug_str     0x00001662      0x3c3 ./startup/startup_lpc812.o
                                 0x4ef (size before relaxing)
- .debug_str     0x00001a25     0x1231 ./source/Main_NTAG_THMS.o
-                               0x1fbb (size before relaxing)
- .debug_str     0x00002c56       0x1f ./source/mtb.o
+ .debug_str     0x00001a25     0x1258 ./source/Main_NTAG_THMS.o
+                               0x1fe2 (size before relaxing)
+ .debug_str     0x00002c7d       0x1f ./source/mtb.o
                                 0x13a (size before relaxing)
- .debug_str     0x00002c75       0x1f ./source/semihost_hardfault.o
+ .debug_str     0x00002c9c       0x1f ./source/semihost_hardfault.o
                                 0x13a (size before relaxing)
- .debug_str     0x00002c94      0x6be ./drivers/fsl_clock.o
+ .debug_str     0x00002cbb      0x6be ./drivers/fsl_clock.o
                                0x13b1 (size before relaxing)
- .debug_str     0x00003352      0x2f4 ./drivers/fsl_gpio.o
+ .debug_str     0x00003379      0x2f4 ./drivers/fsl_gpio.o
                                 0x891 (size before relaxing)
- .debug_str     0x00003646      0x770 ./drivers/fsl_i2c.o
+ .debug_str     0x0000366d      0x770 ./drivers/fsl_i2c.o
                                0x10ed (size before relaxing)
- .debug_str     0x00003db6       0x65 ./drivers/fsl_reset.o
+ .debug_str     0x00003ddd       0x65 ./drivers/fsl_reset.o
                                 0x6bc (size before relaxing)
- .debug_str     0x00003e1b      0x4c0 ./drivers/fsl_swm.o
+ .debug_str     0x00003e42      0x4c0 ./drivers/fsl_swm.o
                                 0x7a9 (size before relaxing)
- .debug_str     0x000042db      0xb35 ./drivers/fsl_usart.o
+ .debug_str     0x00004302      0xb35 ./drivers/fsl_usart.o
                                0x1f0d (size before relaxing)
- .debug_str     0x00004e10       0x93 ./device/system_LPC812.o
+ .debug_str     0x00004e37       0x93 ./device/system_LPC812.o
                                 0x522 (size before relaxing)
- .debug_str     0x00004ea3       0xdf ./component/uart/fsl_adapter_miniusart.o
+ .debug_str     0x00004eca       0xdf ./component/uart/fsl_adapter_miniusart.o
                                0x13a9 (size before relaxing)
- .debug_str     0x00004f82       0x1c ./board/board.o
+ .debug_str     0x00004fa9       0x1c ./board/board.o
                                0x116c (size before relaxing)
- .debug_str     0x00004f9e      0x142 ./board/clock_config.o
+ .debug_str     0x00004fc5      0x142 ./board/clock_config.o
                                 0x80c (size before relaxing)
- .debug_str     0x000050e0       0x26 ./board/pin_mux.o
+ .debug_str     0x00005107       0x26 ./board/pin_mux.o
                                 0xa2c (size before relaxing)
- .debug_str     0x00005106      0x321 ./THMS/THMS.o
+ .debug_str     0x0000512d      0x321 ./THMS/THMS.o
                                 0x765 (size before relaxing)
- .debug_str     0x00005427      0x192 ./THMS/thms_2_ndef.o
-                                0x662 (size before relaxing)
- .debug_str     0x000055b9      0x3df ./NTAG/NTAG.o
+ .debug_str     0x0000544e      0x1af ./THMS/thms_2_ndef.o
+                                0x67f (size before relaxing)
+ .debug_str     0x000055fd      0x3df ./NTAG/NTAG.o
                                0x1528 (size before relaxing)
- .debug_str     0x00005998      0x2e4 ./NDEF_Parse/ndef_parse.o
+ .debug_str     0x000059dc      0x2e4 ./NDEF_Parse/ndef_parse.o
                                 0x6fd (size before relaxing)
- .debug_str     0x00005c7c      0x54f ./ADS1115/ads1115.o
+ .debug_str     0x00005cc0      0x54f ./ADS1115/ads1115.o
                                0x1ca5 (size before relaxing)
 
 .comment        0x00000000       0x4c
