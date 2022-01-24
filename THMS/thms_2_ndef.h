@@ -50,7 +50,7 @@ bool thms2ndef_getValuesFromMeasText(ndef_message_uint8_array_t * message);
 //bool thms2ndef_check4ismInstruction(uint8_t * newIsmInstruction_p, uint8_t ntagUserMemoryVal_p[]);
 
 ndef_message_uint8_array_t * thms2ndef_generateMeasTextAndDoInstruction(uint8_t doInstruction, uint8_t MeasurementNo,  int32_t SensorSignal, int32_t MeasurementSignal, uint32_t r_sqrt_by2pow32) ;
-ndef_message_uint8_array_t * thms2ndef_generateConfigInfoTextAndDoInstruction(uint8_t doInstructionchar, char fw_version[], char ss_type[], char ms_type[],  char pulse_length[], char pulse_fit_start[]);
+ndef_message_uint8_array_t * thms2ndef_generateConfigInfoTextAndDoInstruction(uint8_t doInstructionchar, char fw_version[], char ss_type[], char ms_type[],  char pulse_length[], char pulse_fit_start[], char sensor_tcr[], uint32_t mulitplier_LSB_inPV);
 void thms2ndef_freemMessTextArray(ndef_message_uint8_array_t * messageArrayToBeFreed_p);
 
 

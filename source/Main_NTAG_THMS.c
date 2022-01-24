@@ -8,17 +8,16 @@
  *  - StateMachine Case für Get Info zu Codeversion, Sensor-Signal-Type, Measurement-Signal-Type
  *
  * ToDo:
- *  - Globel Config Datei?
- *  	- Automatisches Übernehmen von Änderungen an FIRMWARE_VERSION, Sensor-Signal-Type etc in FSM_GET_CONFIG
- *  - Info über Pulslänge in "FSM_GET_CONFIG"
+ *  - Sturktur für Konfiguration.
+ *  	- Einfacherers Übergeben als Pointer an Funktionen (-> thms2ndef_generateConfigInfoTextAndDoInstruction)
  *  - FSM_State für FSM_CHANGE_CONFIG
  *		- PULSE_LENGTH_MS als const änderbar über NFC
- * 	- Handling of I2C block during NFC communication
- * 	- Code Version Info in Tag-Text mit aufnehmen
+ *		- ADC Konfiguration (Gain, Samplerate) änderbar
+ * 	- Handling of I2C block wärend der NFC Kommunikation
  *
  */
 
-#define FIRMWARE_VERSION				"1.3.3"
+#define FIRMWARE_VERSION				"1.3.4"
 
 // >>> CONFIG <<< //
 #define SELF_RESET_AFTER_MEASUREMENT	false	// Reset NFC to trigger readout
@@ -26,6 +25,7 @@
 #define PULSE_LENGTH_MS					600		// Length of pulse. Max 3 Seconds. Adjust ADS Gain and DR in THMS.h to avoid sample overflow.
 #define PULSE_FIT_START_MS				50		// Time to start LinReg fit for "THMS-SS" calculation.
 #define AUTOMATIC_MEASUREMENT_INS		0		// To do automatic measurements if power is enabled. Set to zero to disable.
+#define SENSOR_TCR						"6 10^-3 K^-1"		// In 10^-3 K^-1
 
 // >>> DEBUG COONFIG <<< //
 #define PRINT_UART_DEBUG_INFO			false
@@ -142,11 +142,15 @@ static bool resetIndicator = false; // to indicate if system was reset (but with
 static uint8_t measurementCout = 0;
 static int FSM_slowDown_ms = FSM_DEFAULT_SLOW_DOWN;
 
+//ToDo: In Structur umformen für einfachere Übergabe an Funktionen
 static char fw_version[10] = FIRMWARE_VERSION;
 static char ss_type_m[20] = "sqrt(ns)/LSB"; // Should be Null-terminated
 static char ms_type_m[20] = "nV";	// Should be Null-terminated
 static char pulse_length_10_m[10] = PULSE_LENGTH_STRING; // Should be Null-terminated
 static char pulse_fit_start_10_m[10] = PULSE_FITSTART_STRING;	// Should be Null-terminated
+static char sensor_tcr_m[20] = SENSOR_TCR;
+
+static uint32_t mulitplier_LSB_inPV; // Value to convert LSB (of ADC) into picoVolt.
 
 /*******************************************************************************
  * Code
@@ -333,7 +337,7 @@ int main(void)
 
     	case FSM_DO_SINGLE_MEASUREMENT: {
     		measurementCout++;
-    		thms_get_sensor_signal(&SensorSignal, &MeasurementSignal, &rsqrt_indicator, PULSE_LENGTH_MS, PULSE_FIT_START_MS,ss_type_m,ms_type_m);
+    		thms_get_sensor_signal(&SensorSignal, &MeasurementSignal, &rsqrt_indicator, PULSE_LENGTH_MS, PULSE_FIT_START_MS,ss_type_m,ms_type_m,&mulitplier_LSB_inPV);
     		//thms2ndef_generateSimpleMeasurementTextMessage(ntagUserMemoryVal, &ntagUserMemoryValLength, SensorSignal);
 
 #if SELF_RESET_AFTER_MEASUREMENT == true
@@ -373,7 +377,7 @@ int main(void)
     		fsm_state_m = FSM_IDLE; // = Next state
 
     		next_doInstruction = FSM_IDLE;
-    		ndef_message_uint8_array_t * config_text_message_array_s_p = thms2ndef_generateConfigInfoTextAndDoInstruction(next_doInstruction, fw_version, ss_type_m, ms_type_m,pulse_length_10_m,pulse_fit_start_10_m);
+    		ndef_message_uint8_array_t * config_text_message_array_s_p = thms2ndef_generateConfigInfoTextAndDoInstruction(next_doInstruction, fw_version, ss_type_m, ms_type_m,pulse_length_10_m,pulse_fit_start_10_m,sensor_tcr_m, mulitplier_LSB_inPV);
     		if(!set_NDEF_Text_Record_on_NTAG(config_text_message_array_s_p)) {
     	    	fsm_state_m = FSM_ERROR;
     	    	lastError = ERROR_NDEF_MESSAGE_CONSTRUCTION;

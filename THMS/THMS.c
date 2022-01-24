@@ -106,10 +106,10 @@ bool thms_readAlertPinCheck(void) {
  * @param[out] *p_MeasurementSignal: Second ADC sample in nV. Can be used to calculate the ambient temperature.
  * @param[out] char *ss_type_20: Pointer to char array (at least 20) to write type of sensor-signal.perature.
  * @param[out] char *ms_type_20: Pointer to char array (at least 20) to write type of measurement-signal.
- * ToDo: Checken ob multiplierInPV fehlerhaft? Um 10 zu gross?
  * @param[out] *p_rsqrt_indicator_by2pow32: Rsqrt (Coefficient of determination) multiplied with 2^32.
+ * @param[out) uint32_t * multiplierInPV_out_p: Multiplier to convert one LSB of ADC into voltage.
  *************************************************************************************/
-void thms_get_sensor_signal(int32_t * p_SensorSignal, int32_t * p_MeasurementSignal, uint32_t * p_rsqrt_indicator_by2pow32, uint32_t pulseLenght_inms, uint32_t fitStart_inms, char ss_type_20[], char ms_type_20[]) {
+void thms_get_sensor_signal(int32_t * p_SensorSignal, int32_t * p_MeasurementSignal, uint32_t * p_rsqrt_indicator_by2pow32, uint32_t pulseLenght_inms, uint32_t fitStart_inms, char ss_type_20[], char ms_type_20[], uint32_t * multiplierInPV_out_p) {
 	uint32_t samplingPeriodInus = ADS1115_getSamplingPeriod_us();
 	uint16_t sampleCountIndex = (uint16_t) ((pulseLenght_inms*1000)/samplingPeriodInus);
 	uint16_t fitStartIndex = (uint16_t) ((fitStart_inms*1000)/samplingPeriodInus);
@@ -158,6 +158,7 @@ void thms_get_sensor_signal(int32_t * p_SensorSignal, int32_t * p_MeasurementSig
 
     Linear_Regression(valueArray,timeArray,sampleCountIndex,fitStartIndex,&b1,&b0,&Rpow2by2pow32);
     *p_SensorSignal = b1;
+    *multiplierInPV_out_p = multiplierInPV;
     memcpy(ss_type_20,"sqrt(ns)/LSB\0",13);
     //*p_SensorSignal = (1e9/multiplierInPV)*b1; // Convert sqrt(ns)/LSB to sqrt(ms)/V (sqrt(1e6) = 1e3 | 1e12/1e3 = 1e9)
 	//ADS_GAIN_EIGHT -> multiplier=1562500 -> (1e9/multiplierInPV) = 64

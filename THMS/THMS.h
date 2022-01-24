@@ -51,8 +51,9 @@ bool thms_readAlertPinCheck(void);
  * @param[out] *p_rsqrt_indicator_by2pow32: Rsqrt (Coefficient of determination) multiplied with 2^32.
  * @param[out] char *ss_type_20: Pointer to char array (at least 20) to write type of sensor-signal.perature.
  * @param[out] char *ms_type_20: Pointer to char array (at least 20) to write type of measurement-signal.
+ * @param[out) uint32_t * multiplierInPV_out_p: Multiplier to convert one LSB of ADC into voltage.
  *************************************************************************************/
-void thms_get_sensor_signal(int32_t * p_SensorSignal, int32_t * p_MeasurementSignal, uint32_t * p_rsqrt_indicator, uint32_t pulseLenght_inms, uint32_t fitStart_inms, char ss_type_20[], char ms_type_20[]);
+void thms_get_sensor_signal(int32_t * p_SensorSignal, int32_t * p_MeasurementSignal, uint32_t * p_rsqrt_indicator, uint32_t pulseLenght_inms, uint32_t fitStart_inms, char ss_type_20[], char ms_type_20[], uint32_t * multiplierInPV_out_p);
 
 /* >> END: External Functions */
 
