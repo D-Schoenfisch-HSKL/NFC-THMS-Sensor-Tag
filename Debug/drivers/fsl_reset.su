@@ -1,1 +1,1 @@
-fsl_reset.c:86:6:RESET_PeripheralReset	8	static
+../drivers/fsl_reset.c:86:6:RESET_PeripheralReset	8	static

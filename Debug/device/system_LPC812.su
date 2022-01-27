@@ -1,3 +1,3 @@
-system_LPC812.c:125:6:SystemCoreClockUpdate	16	static
-system_LPC812.c:189:29:SystemInitHook	0	static
-system_LPC812.c:108:6:SystemInit	8	static
+../device/system_LPC812.c:125:6:SystemCoreClockUpdate	16	static
+../device/system_LPC812.c:189:29:SystemInitHook	0	static
+../device/system_LPC812.c:108:6:SystemInit	8	static

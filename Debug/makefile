@@ -34,25 +34,25 @@ endif
 # Add inputs and outputs from these tool invocations to the build variables 
 
 # All Target
-all: lpcxpresso812_NTAG_THMS.axf
+all: NFC-THMS-Sensor-Tag.axf
 
 # Tool invocations
-lpcxpresso812_NTAG_THMS.axf: $(OBJS) $(USER_OBJS)
+NFC-THMS-Sensor-Tag.axf: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: MCU Linker'
-	arm-none-eabi-gcc -nostdlib -Xlinker -Map="lpcxpresso812_NTAG_THMS.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -Xlinker --sort-section=alignment -Xlinker --cref -mcpu=cortex-m0plus -mthumb -T "lpcxpresso812_NTAG_THMS_Debug.ld" -o "lpcxpresso812_NTAG_THMS.axf" $(OBJS) $(USER_OBJS) $(LIBS)
+	arm-none-eabi-gcc -nostdlib -Xlinker -Map="NFC-THMS-Sensor-Tag.map" -Xlinker --gc-sections -Xlinker -print-memory-usage -Xlinker --sort-section=alignment -Xlinker --cref -mcpu=cortex-m0plus -mthumb -T "NFC-THMS-Sensor-Tag_Debug.ld" -o "NFC-THMS-Sensor-Tag.axf" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 	$(MAKE) --no-print-directory post-build
 
 # Other Targets
 clean:
-	-$(RM) $(EXECUTABLES)$(OBJS)$(C_DEPS) lpcxpresso812_NTAG_THMS.axf
+	-$(RM) $(EXECUTABLES)$(OBJS)$(C_DEPS) NFC-THMS-Sensor-Tag.axf
 	-@echo ' '
 
 post-build:
 	-@echo 'Performing post-build steps'
-	-arm-none-eabi-size "lpcxpresso812_NTAG_THMS.axf"; # arm-none-eabi-objcopy -v -O binary "lpcxpresso812_NTAG_THMS.axf" "lpcxpresso812_NTAG_THMS.bin" ; # checksum -p LPC812 -d "lpcxpresso812_NTAG_THMS.bin";
+	-arm-none-eabi-size "NFC-THMS-Sensor-Tag.axf"; # arm-none-eabi-objcopy -v -O binary "NFC-THMS-Sensor-Tag.axf" "NFC-THMS-Sensor-Tag.bin" ; # checksum -p LPC812 -d "NFC-THMS-Sensor-Tag.bin";
 	-@echo ' '
 
 .PHONY: all clean dependents post-build

@@ -1,2 +1,2 @@
-fsl_gpio.c:60:6:GPIO_PortInit	8	static
-fsl_gpio.c:97:6:GPIO_PinInit	16	static
+../drivers/fsl_gpio.c:60:6:GPIO_PortInit	8	static
+../drivers/fsl_gpio.c:97:6:GPIO_PinInit	16	static

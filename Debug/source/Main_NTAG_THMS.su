@@ -1,5 +1,7 @@
-Main_NTAG_THMS.c:183:6:reanimateNTAG	8	static
-Main_NTAG_THMS.c:204:6:set_NTAG_do_instruction	32	static
-Main_NTAG_THMS.c:231:9:check_NTAG_for_do_instructuion	24	static
-Main_NTAG_THMS.c:248:6:thingsToDoAtInitialization	16	static
-Main_NTAG_THMS.c:292:5:main	72	static
+../source/Main_NTAG_THMS.c:215:6:printHEX	24	static
+../source/Main_NTAG_THMS.c:223:6:reanimateNTAG	8	static
+../source/Main_NTAG_THMS.c:243:6:thingsToDoAtInitialization	8	static
+../source/Main_NTAG_THMS.c:420:6:set_NDEF_Text_Record_on_NTAG	56	static
+../source/Main_NTAG_THMS.c:481:6:set_NTAG_do_instruction	32	static
+../source/Main_NTAG_THMS.c:506:9:get_NTAG_do_instructuion	16	static
+../source/Main_NTAG_THMS.c:288:5:main	40	static
