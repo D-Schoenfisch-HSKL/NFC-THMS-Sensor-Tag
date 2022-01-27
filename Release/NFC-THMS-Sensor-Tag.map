@@ -1674,29 +1674,29 @@ LOAD linker stubs
  .debug_ranges  0x00001020       0x88 ./NDEF_Parse/ndef_parse.o
  .debug_ranges  0x000010a8      0x1d0 ./ADS1115/ads1115.o
 
-.debug_line     0x00000000     0x8394
+.debug_line     0x00000000     0x8395
  .debug_line    0x00000000      0xc5d ./utilities/fsl_debug_console.o
  .debug_line    0x00000c5d      0x351 ./timer/timer.o
  .debug_line    0x00000fae      0x3c3 ./startup/startup_lpc812.o
- .debug_line    0x00001371      0x947 ./source/Main_NTAG_THMS.o
- .debug_line    0x00001cb8       0x30 ./source/mtb.o
- .debug_line    0x00001ce8       0x5a ./source/semihost_hardfault.o
- .debug_line    0x00001d42      0x896 ./drivers/fsl_clock.o
- .debug_line    0x000025d8      0x2ae ./drivers/fsl_gpio.o
- .debug_line    0x00002886      0xf2f ./drivers/fsl_i2c.o
- .debug_line    0x000037b5      0x211 ./drivers/fsl_reset.o
- .debug_line    0x000039c6      0x26e ./drivers/fsl_swm.o
- .debug_line    0x00003c34      0xe6e ./drivers/fsl_usart.o
- .debug_line    0x00004aa2      0x2d9 ./device/system_LPC812.o
- .debug_line    0x00004d7b      0x3b3 ./component/uart/fsl_adapter_miniusart.o
- .debug_line    0x0000512e      0x2e8 ./board/board.o
- .debug_line    0x00005416      0x445 ./board/clock_config.o
- .debug_line    0x0000585b      0x2b5 ./board/pin_mux.o
- .debug_line    0x00005b10      0x743 ./THMS/THMS.o
- .debug_line    0x00006253      0x6e3 ./THMS/thms_2_ndef.o
- .debug_line    0x00006936      0x9ba ./NTAG/NTAG.o
- .debug_line    0x000072f0      0x826 ./NDEF_Parse/ndef_parse.o
- .debug_line    0x00007b16      0x87e ./ADS1115/ads1115.o
+ .debug_line    0x00001371      0x948 ./source/Main_NTAG_THMS.o
+ .debug_line    0x00001cb9       0x30 ./source/mtb.o
+ .debug_line    0x00001ce9       0x5a ./source/semihost_hardfault.o
+ .debug_line    0x00001d43      0x896 ./drivers/fsl_clock.o
+ .debug_line    0x000025d9      0x2ae ./drivers/fsl_gpio.o
+ .debug_line    0x00002887      0xf2f ./drivers/fsl_i2c.o
+ .debug_line    0x000037b6      0x211 ./drivers/fsl_reset.o
+ .debug_line    0x000039c7      0x26e ./drivers/fsl_swm.o
+ .debug_line    0x00003c35      0xe6e ./drivers/fsl_usart.o
+ .debug_line    0x00004aa3      0x2d9 ./device/system_LPC812.o
+ .debug_line    0x00004d7c      0x3b3 ./component/uart/fsl_adapter_miniusart.o
+ .debug_line    0x0000512f      0x2e8 ./board/board.o
+ .debug_line    0x00005417      0x445 ./board/clock_config.o
+ .debug_line    0x0000585c      0x2b5 ./board/pin_mux.o
+ .debug_line    0x00005b11      0x743 ./THMS/THMS.o
+ .debug_line    0x00006254      0x6e3 ./THMS/thms_2_ndef.o
+ .debug_line    0x00006937      0x9ba ./NTAG/NTAG.o
+ .debug_line    0x000072f1      0x826 ./NDEF_Parse/ndef_parse.o
+ .debug_line    0x00007b17      0x87e ./ADS1115/ads1115.o
 
 .debug_str      0x00000000     0x6250
  .debug_str     0x00000000     0x1340 ./utilities/fsl_debug_console.o

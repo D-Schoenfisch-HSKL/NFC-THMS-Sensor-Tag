@@ -37,7 +37,7 @@ Wenn auf den Tag also "Do:02;" als NDEF geschrieben wird fürt dieser eine Mesun
 Verschiedene Einstellungen können bei dem kompillieren des Mikrocontroller-Programms bereits vorgenommen werden.
 So z.B. Messsignal-Typ, Pulslänge oder auch Fin-Fenster (Startzeitpunkt für Fit). 
 Diese Einstellungsparameter sind abhängig von der Anwendung des Tags (z.B. Textilmaterial oder für Anwendugn auf der Haut).
-Mit dem Do-Befehl zu "GetConf" kann diese Konfiguration vom Sensor-Tag ausgegeben weren.
+Mit dem Do-Befehl zu "FSM_GET_CONFIG" kann diese Konfiguration vom Sensor-Tag ausgegeben weren.
 >**Zur Info:** Einige Einstellungen werden in der Software als Variable gehandelt und könnten so über einen zusätzlichen Do-Befehl zur Konfiguration abgespeichert werden.  
 Allerdings werden alle Variabeln nach einem Neustart des Mikrocontrollers wieder zurück gesetzt. Sie bleiben also nur erhalten solange das NFC-Feld aufrecht erhalten bleibt.
 
@@ -63,7 +63,7 @@ Mnemonic | Funktion
 ## Fehlercodes
 Über Uart
 
-Fehlercode| Definition
+Fehlercode| Mnemonic
 -------------- | --------
 0x00U | ERROR_UNKNOWN					
 0x01U | ERROR_FSM_INSTRUCTION_UNKNOWN	
