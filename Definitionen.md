@@ -55,7 +55,7 @@ Mnemonic | Funktion
  MST    | Tpy/Einheit des Messsignals.
  PLEN	| Länge des Heizpulses (= zugleich Endzeitpunkt für Fit). Gegeben in "ms".
  PST	| Startzeitpunkt für den Fit des Heizpulses. Gegeben in "ms".
- TCR	| "Theral Coefficient of Resistance". Gegeben in "1E-3 K^-1".
+ TCR	| "Thermal Coefficient of Resistance". Gegeben in "1E-3 K^-1".
  LSBM	| Wertigkeit eines LSB in pico Volt. 
 
 
